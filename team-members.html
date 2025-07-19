@@ -198,6 +198,321 @@
             color: rgba(255, 255, 255, 0.9);
             font-weight: 500;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-padding {
+                padding: 2rem 0;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .page-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .section-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Team Tree Mobile Layout */
+            .team-tree-container {
+                margin: 1rem 0;
+            }
+
+            .team-tree-branches {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .team-branch {
+                padding: 1rem;
+            }
+
+            .branch-header {
+                padding: 0.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .branch-header h3 {
+                font-size: 1.125rem;
+            }
+
+            /* Team Member Cards Mobile */
+            .team-member-compact {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+                gap: 1rem;
+            }
+
+            .member-avatar-compact {
+                width: 6rem;
+                height: 6rem;
+            }
+
+            .member-avatar-fallback {
+                font-size: 2.5rem;
+            }
+
+            .member-name-compact {
+                font-size: 1.125rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .member-role-compact {
+                font-size: 0.875rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .member-date-compact {
+                font-size: 0.75rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .member-about-compact {
+                font-size: 0.75rem;
+                margin-bottom: 0.75rem;
+                line-height: 1.4;
+            }
+
+            .member-social-compact {
+                gap: 0.75rem;
+            }
+
+            .social-link-compact {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.875rem;
+            }
+
+            /* Professor Section Mobile */
+            .team-member-compact.professor {
+                max-width: 100%;
+                padding: 1.5rem;
+            }
+
+            .team-member-compact.professor .member-avatar-compact {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            .team-member-compact.professor .member-avatar-fallback {
+                font-size: 2rem;
+            }
+
+            .team-member-compact.professor .member-name-compact {
+                font-size: 1.25rem;
+            }
+
+            /* Alumni Section Mobile */
+            .team-member-compact.alumni {
+                max-width: 100%;
+                padding: 1.5rem;
+            }
+
+            .team-member-compact.alumni .member-avatar-compact {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            .team-member-compact.alumni .member-avatar-fallback {
+                font-size: 2rem;
+            }
+
+            /* Join Team Section Mobile */
+            .join-team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .join-team-card {
+                padding: 1.5rem;
+            }
+
+            .join-team-title {
+                font-size: 1.25rem;
+            }
+
+            .join-team-description {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .section-padding {
+                padding: 1.5rem 0;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+            }
+
+            /* Team Member Cards Small Mobile */
+            .team-member-compact {
+                padding: 1rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .member-avatar-compact {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            .member-avatar-fallback {
+                font-size: 2rem;
+            }
+
+            .member-name-compact {
+                font-size: 1rem;
+            }
+
+            .member-role-compact {
+                font-size: 0.8rem;
+            }
+
+            .member-date-compact {
+                font-size: 0.7rem;
+            }
+
+            .member-about-compact {
+                font-size: 0.7rem;
+                line-height: 1.3;
+            }
+
+            .social-link-compact {
+                width: 1.75rem;
+                height: 1.75rem;
+                font-size: 0.75rem;
+            }
+
+            /* Professor Section Small Mobile */
+            .team-member-compact.professor {
+                padding: 1rem;
+            }
+
+            .team-member-compact.professor .member-avatar-compact {
+                width: 4rem;
+                height: 4rem;
+            }
+
+            .team-member-compact.professor .member-avatar-fallback {
+                font-size: 1.75rem;
+            }
+
+            .team-member-compact.professor .member-name-compact {
+                font-size: 1.125rem;
+            }
+
+            /* Alumni Section Small Mobile */
+            .team-member-compact.alumni {
+                padding: 1rem;
+            }
+
+            .team-member-compact.alumni .member-avatar-compact {
+                width: 4rem;
+                height: 4rem;
+            }
+
+            .team-member-compact.alumni .member-avatar-fallback {
+                font-size: 1.75rem;
+            }
+
+            /* Branch Headers Small Mobile */
+            .branch-header {
+                padding: 0.5rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .branch-header h3 {
+                font-size: 1rem;
+            }
+
+            .branch-header i {
+                font-size: 1rem;
+            }
+
+            /* Join Team Small Mobile */
+            .join-team-card {
+                padding: 1rem;
+            }
+
+            .join-team-title {
+                font-size: 1.125rem;
+            }
+
+            .join-team-description {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Landscape Mobile Optimization */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .team-tree-branches {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .team-member-compact {
+                padding: 1rem;
+            }
+
+            .member-avatar-compact {
+                width: 4rem;
+                height: 4rem;
+            }
+
+            .member-avatar-fallback {
+                font-size: 2rem;
+            }
+        }
+
+        /* Touch-friendly interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .team-member-compact:hover {
+                transform: none;
+            }
+
+            .social-link-compact:hover {
+                transform: none;
+            }
+
+            .join-team-card:hover {
+                transform: none;
+            }
+
+            /* Increase touch targets */
+            .social-link-compact {
+                min-width: 2.5rem;
+                min-height: 2.5rem;
+            }
+
+            .btn {
+                min-height: 2.75rem;
+                padding: 0.75rem 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
