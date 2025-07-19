@@ -207,3 +207,4 @@ docs/.doctrees/
 # Local development files
 *.local
 local.*
+.vercel
