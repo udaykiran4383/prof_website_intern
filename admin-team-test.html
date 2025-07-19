@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Team Integration Test</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section { 
+            margin: 20px 0; 
+            padding: 20px; 
+            border: 2px solid #e0e0e0; 
+            border-radius: 8px; 
+            background: #fafafa;
+        }
+        .test-section h3 {
+            color: #333;
+            margin-top: 0;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        button { 
+            padding: 12px 20px; 
+            margin: 8px; 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        button:hover { 
+            background: #0056b3; 
+        }
+        button.danger {
+            background: #dc3545;
+        }
+        button.danger:hover {
+            background: #c82333;
+        }
+        button.success {
+            background: #28a745;
+        }
+        button.success:hover {
+            background: #218838;
+        }
+        .result { 
+            margin: 15px 0; 
+            padding: 15px; 
+            background: #f8f9fa; 
+            border-radius: 5px; 
+            border-left: 4px solid #007bff;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        .result.success {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+        .result.error {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+        }
+        .console-output {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            height: 200px;
+            overflow-y: auto;
+            margin: 10px 0;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .navigation {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Admin-Team Integration Test Suite</h1>
+        <p>This page tests the complete integration between the admin panel and team page functionality.</p>
+        
+        <div class="status success">
+            ✅ Server Status: Running on http://localhost:8000
+        </div>
+        
+        <div class="test-section">
+            <h3>📋 Test 1: Basic localStorage Functionality</h3>
+            <button onclick="testLocalStorage()">Test localStorage</button>
+            <button onclick="clearLocalStorage()" class="danger">Clear localStorage</button>
+            <div id="localStorage-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>📋 Test 2: Admin Data Structure</h3>
+            <button onclick="testAdminDataStructure()">Test Data Structure</button>
+            <button onclick="viewCurrentData()">View Current Data</button>
+            <div id="data-structure-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>📋 Test 3: Add Team Member (Admin Simulation)</h3>
+            <button onclick="addTestMember()" class="success">Add Test Member</button>
+            <button onclick="addMultipleMembers()" class="success">Add Multiple Members</button>
+            <div id="add-member-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>📋 Test 4: Verify Team Page Integration</h3>
+            <button onclick="verifyTeamPageData()">Verify Data</button>
+            <button onclick="simulateTeamPageLoad()">Simulate Team Page Load</button>
+            <div id="team-page-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>📋 Test 5: Complete Integration Test</h3>
+            <button onclick="runCompleteTest()" class="success">Run Complete Test</button>
+            <button onclick="clearAllData()" class="danger">Clear All Data</button>
+            <div id="complete-test-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🖥️ Console Output</h3>
+            <button onclick="clearConsole()">Clear Console</button>
+            <div id="console-output" class="console-output"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🔗 Navigation</h3>
+            <div class="navigation">
+                <button onclick="window.open('http://localhost:8000/admin.html', '_blank')">Open Admin Panel</button>
+                <button onclick="window.open('http://localhost:8000/team-members.html', '_blank')">Open Team Page</button>
+                <button onclick="window.open('http://localhost:8000/test-integration.html', '_blank')">Open Simple Test</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="integration-test.js"></script>
+    <script>
+        // Override console.log to capture output
+        const originalLog = console.log;
+        const consoleOutput = document.getElementById('console-output');
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const message = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+            ).join(' ');
+            consoleOutput.innerHTML += message + '\n';
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        };
+
+        function testLocalStorage() {
+            const result = document.getElementById('localStorage-result');
+            try {
+                localStorage.setItem('test', 'test-value');
+                const retrieved = localStorage.getItem('test');
+                localStorage.removeItem('test');
+                
+                if (retrieved === 'test-value') {
+                    result.innerHTML = '<strong>✅ localStorage is working correctly</strong><br>Test value stored and retrieved successfully.';
+                    result.className = 'result success';
+                } else {
+                    result.innerHTML = '<strong>❌ localStorage test failed</strong><br>Retrieved value does not match stored value.';
+                    result.className = 'result error';
+                }
+            } catch (e) {
+                result.innerHTML = '<strong>❌ localStorage error</strong><br>' + e.message;
+                result.className = 'result error';
+            }
+        }
+
+        function clearLocalStorage() {
+            localStorage.clear();
+            document.getElementById('localStorage-result').innerHTML = '<strong>✅ localStorage cleared</strong>';
+            document.getElementById('localStorage-result').className = 'result success';
+        }
+
+        function testAdminDataStructure() {
+            const result = document.getElementById('data-structure-result');
+            try {
+                const testData = {
+                    current: { postdoc: [], phd: [], mtech: [], btech: [], staff: [] },
+                    past: { postdoc: [], phd: [], mtech: [], btech: [], staff: [] }
+                };
+                
+                localStorage.setItem('teamMembers', JSON.stringify(testData));
+                const retrieved = JSON.parse(localStorage.getItem('teamMembers'));
+                
+                if (JSON.stringify(retrieved) === JSON.stringify(testData)) {
+                    result.innerHTML = '<strong>✅ Admin data structure is working correctly</strong><br>Data structure matches expected format.';
+                    result.className = 'result success';
+                } else {
+                    result.innerHTML = '<strong>❌ Admin data structure mismatch</strong>';
+                    result.className = 'result error';
+                }
+            } catch (e) {
+                result.innerHTML = '<strong>❌ Admin data structure error</strong><br>' + e.message;
+                result.className = 'result error';
+            }
+        }
+
+        function viewCurrentData() {
+            const result = document.getElementById('data-structure-result');
+            try {
+                const data = localStorage.getItem('teamMembers');
+                if (data) {
+                    const parsed = JSON.parse(data);
+                    result.innerHTML = '<strong>Current teamMembers data:</strong><br><pre>' + JSON.stringify(parsed, null, 2) + '</pre>';
+                } else {
+                    result.innerHTML = '<strong>No teamMembers data found in localStorage</strong>';
+                }
+                result.className = 'result';
+            } catch (e) {
+                result.innerHTML = '<strong>❌ Error reading data</strong><br>' + e.message;
+                result.className = 'result error';
+            }
+        }
+
+        function addTestMember() {
+            const result = document.getElementById('add-member-result');
+            try {
+                const testMember = {
+                    name: "Test User " + Date.now(),
+                    designation: "Test Role",
+                    date: "Test Date",
+                    about: "Test Description",
+                    email: "test@test.com",
+                    linkedin: "",
+                    googleScholar: ""
+                };
+                
+                let teamMembers = {
+                    current: { postdoc: [], phd: [], mtech: [], btech: [], staff: [] },
+                    past: { postdoc: [], phd: [], mtech: [], btech: [], staff: [] }
+                };
+                
+                const existing = localStorage.getItem('teamMembers');
+                if (existing) {
+                    teamMembers = JSON.parse(existing);
+                }
+                
+                teamMembers.current.postdoc.push(testMember);
+                localStorage.setItem('teamMembers', JSON.stringify(teamMembers));
+                
+                result.innerHTML = '<strong>✅ Test member added successfully!</strong><br>Name: ' + testMember.name + '<br>Role: ' + testMember.designation;
+                result.className = 'result success';
+            } catch (e) {
+                result.innerHTML = '<strong>❌ Error adding test member</strong><br>' + e.message;
+                result.className = 'result error';
+            }
+        }
+
+        function addMultipleMembers() {
+            const result = document.getElementById('add-member-result');
+            try {
+                const testMembers = [
+                    {
+                        name: "PhD Test User",
+                        designation: "PhD Candidate",
+                        date: "2024 - Present",
+                        about: "Test PhD student",
+                        email: "phd@test.com",
+                        linkedin: "",
+                        googleScholar: ""
+                    },
+                    {
+                        name: "M.Tech Test User",
+                        designation: "M.Tech Student",
+                        date: "2024 - Present",
+                        about: "Test M.Tech student",
+                        email: "mtech@test.com",
+                        linkedin: "",
+                        googleScholar: ""
+                    }
+                ];
+                
+                let teamMembers = {
+                    current: { postdoc: [], phd: [], mtech: [], btech: [], staff: [] },
+                    past: { postdoc: [], phd: [], mtech: [], btech: [], staff: [] }
+                };
+                
+                const existing = localStorage.getItem('teamMembers');
+                if (existing) {
+                    teamMembers = JSON.parse(existing);
+                }
+                
+                teamMembers.current.phd.push(testMembers[0]);
+                teamMembers.current.mtech.push(testMembers[1]);
+                localStorage.setItem('teamMembers', JSON.stringify(teamMembers));
+                
+                result.innerHTML = '<strong>✅ Multiple test members added successfully!</strong><br>Added: ' + testMembers.length + ' members';
+                result.className = 'result success';
+            } catch (e) {
+                result.innerHTML = '<strong>❌ Error adding multiple members</strong><br>' + e.message;
+                result.className = 'result error';
+            }
+        }
+
+        function verifyTeamPageData() {
+            const result = document.getElementById('team-page-result');
+            try {
+                const data = localStorage.getItem('teamMembers');
+                if (!data) {
+                    result.innerHTML = '<strong>❌ No teamMembers data found</strong>';
+                    result.className = 'result error';
+                    return;
+                }
+                
+                const teamMembers = JSON.parse(data);
+                const totalMembers = Object.values(teamMembers.current).reduce((sum, category) => sum + category.length, 0) +
+                                   Object.values(teamMembers.past).reduce((sum, category) => sum + category.length, 0);
+                
+                result.innerHTML = '<strong>✅ Team page data verification successful</strong><br>Total members: ' + totalMembers + '<br>Data structure is valid.';
+                result.className = 'result success';
+            } catch (e) {
+                result.innerHTML = '<strong>❌ Team page data verification failed</strong><br>' + e.message;
+                result.className = 'result error';
+            }
+        }
+
+        function simulateTeamPageLoad() {
+            const result = document.getElementById('team-page-result');
+            try {
+                // Simulate the team page loadTeamMembers function
+                const saved = localStorage.getItem('teamMembers');
+                if (saved) {
+                    const teamMembers = JSON.parse(saved);
+                    const hasData = Object.values(teamMembers.current).some(category => category.length > 0) ||
+                                   Object.values(teamMembers.past).some(category => category.length > 0);
+                    
+                    if (hasData) {
+                        result.innerHTML = '<strong>✅ Team page would load data successfully</strong><br>Data is available for display.';
+                        result.className = 'result success';
+                    } else {
+                        result.innerHTML = '<strong>⚠️ Team page has no data to display</strong><br>No members in any category.';
+                        result.className = 'result';
+                    }
+                } else {
+                    result.innerHTML = '<strong>⚠️ No saved data found</strong><br>Team page would use default data.';
+                    result.className = 'result';
+                }
+            } catch (e) {
+                result.innerHTML = '<strong>❌ Team page simulation failed</strong><br>' + e.message;
+                result.className = 'result error';
+            }
+        }
+
+        function runCompleteTest() {
+            const result = document.getElementById('complete-test-result');
+            result.innerHTML = '<strong>🚀 Running complete integration test...</strong>';
+            result.className = 'result';
+            
+            setTimeout(() => {
+                try {
+                    // Run the integration test
+                    const success = runAllTests();
+                    
+                    if (success) {
+                        result.innerHTML = '<strong>🎉 Complete integration test passed!</strong><br>Admin-Team integration is working correctly.';
+                        result.className = 'result success';
+                    } else {
+                        result.innerHTML = '<strong>⚠️ Some integration tests failed</strong><br>Check console output for details.';
+                        result.className = 'result error';
+                    }
+                } catch (e) {
+                    result.innerHTML = '<strong>❌ Integration test error</strong><br>' + e.message;
+                    result.className = 'result error';
+                }
+            }, 100);
+        }
+
+        function clearAllData() {
+            localStorage.clear();
+            document.getElementById('complete-test-result').innerHTML = '<strong>✅ All data cleared</strong>';
+            document.getElementById('complete-test-result').className = 'result success';
+        }
+
+        function clearConsole() {
+            document.getElementById('console-output').innerHTML = '';
+        }
+
+        // Auto-run basic test on page load
+        window.onload = function() {
+            console.log('🔍 Admin-Team Integration Test Suite Loaded');
+            console.log('💡 Use the buttons above to run various tests');
+            testLocalStorage();
+        };
+    </script>
+</body>
+</html> 

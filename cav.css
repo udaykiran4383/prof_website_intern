@@ -1,0 +1,590 @@
+/* CAV Page Specific Styles */
+
+
+
+/* CAV Page Header */
+.cav-page-header {
+  background: #f8fafc;
+  color: var(--iitb-navy);
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cav-page-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cav-page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--iitb-navy);
+}
+
+.cav-page-subtitle {
+  font-size: 1.25rem;
+  color: #64748b;
+  margin-bottom: var(--spacing-sm);
+}
+
+.cav-page-lead {
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+/* CAV Page Navigation */
+.cav-page-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.cav-page-nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+}
+
+.cav-back-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--iitb-navy);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: var(--transition-fast);
+  margin-right: auto;
+}
+
+.cav-back-link:hover {
+  color: var(--iitb-accent);
+  transform: translateX(-2px);
+}
+
+.cav-back-link i {
+  font-size: 0.75rem;
+}
+
+.cav-page-nav-link {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #6b7280;
+  transition: var(--transition-fast);
+  border-radius: 0.375rem;
+  border-bottom: 2px solid transparent;
+}
+
+.cav-page-nav-link:hover,
+.cav-page-nav-link.active {
+  color: var(--iitb-navy);
+  background-color: var(--iitb-light-blue);
+  border-bottom-color: var(--iitb-navy);
+}
+
+/* CAV Hero Section */
+.cav-hero {
+  background: #f1f5f9;
+  color: var(--iitb-navy);
+  padding: var(--spacing-2xl) 0;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cav-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cav-hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  color: var(--iitb-navy);
+}
+
+.cav-hero-description {
+  font-size: 1.125rem;
+  color: #64748b;
+  margin-bottom: var(--spacing-2xl);
+  line-height: 1.6;
+}
+
+.cav-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-2xl);
+}
+
+.cav-stat {
+  text-align: center;
+}
+
+.cav-stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--iitb-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cav-stat-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* CAV About Section */
+.cav-about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.cav-mission-card,
+.cav-vision-card,
+.cav-approach-card {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  transition: var(--transition-normal);
+}
+
+.cav-mission-card:hover,
+.cav-vision-card:hover,
+.cav-approach-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cav-card-icon {
+  width: 4rem;
+  height: 4rem;
+  background: var(--iitb-light-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+  color: var(--iitb-navy);
+  font-size: 1.5rem;
+}
+
+.cav-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--iitb-navy);
+  margin-bottom: var(--spacing-md);
+}
+
+.cav-card-description {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Facilities Section */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.facility-card {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.facility-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.facility-icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--iitb-light-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--iitb-navy);
+  font-size: 1.25rem;
+}
+
+.facility-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--iitb-navy);
+  margin-bottom: var(--spacing-md);
+}
+
+.facility-description {
+  color: #6b7280;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+.facility-equipment h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--iitb-navy);
+  margin-bottom: var(--spacing-sm);
+}
+
+.facility-equipment ul {
+  list-style: none;
+  padding: 0;
+}
+
+.facility-equipment li {
+  color: #6b7280;
+  margin-bottom: var(--spacing-xs);
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.facility-equipment li:before {
+  content: "•";
+  color: var(--iitb-accent);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Research Areas */
+.research-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.research-area-card {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.research-area-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.research-area-icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--iitb-light-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--iitb-navy);
+  font-size: 1.25rem;
+}
+
+.research-area-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--iitb-navy);
+  margin-bottom: var(--spacing-md);
+}
+
+.research-area-description {
+  color: #6b7280;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+.research-area-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.research-topic {
+  background: var(--iitb-light-blue);
+  color: var(--iitb-navy);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Collaboration Section */
+.collaboration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.collaboration-card {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.collaboration-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.collaboration-icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--iitb-light-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--iitb-navy);
+  font-size: 1.25rem;
+}
+
+.collaboration-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--iitb-navy);
+  margin-bottom: var(--spacing-md);
+}
+
+.collaboration-description {
+  color: #6b7280;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+.collaboration-benefits h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--iitb-navy);
+  margin-bottom: var(--spacing-sm);
+}
+
+.collaboration-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.collaboration-benefits li {
+  color: #6b7280;
+  margin-bottom: var(--spacing-xs);
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.collaboration-benefits li:before {
+  content: "✓";
+  color: var(--iitb-accent);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* CAV Contact Section */
+.cav-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.cav-contact-info,
+.cav-quick-contact {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.cav-contact-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--iitb-navy);
+  margin-bottom: var(--spacing-lg);
+}
+
+.cav-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.cav-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.cav-contact-item i {
+  color: var(--iitb-accent);
+  font-size: 1.25rem;
+  margin-top: 0.125rem;
+}
+
+.cav-contact-item strong {
+  color: var(--iitb-navy);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.cav-contact-item p {
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* CAV Contact Form */
+.cav-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: var(--spacing-sm);
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  transition: var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--iitb-navy);
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-primary {
+  background: var(--iitb-navy);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--iitb-dark-navy);
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cav-back-link {
+    font-size: 0.8rem;
+  }
+
+  .cav-page-nav {
+    top: 0;
+  }
+
+  .cav-page-title {
+    font-size: 2rem;
+  }
+
+  .cav-page-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .cav-page-nav-items {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .cav-page-nav-link {
+    padding: var(--spacing-sm) var(--spacing-sm);
+    font-size: 0.8rem;
+  }
+
+  .cav-hero-title {
+    font-size: 2rem;
+  }
+
+  .cav-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cav-about-grid,
+  .facilities-grid,
+  .research-areas-grid,
+  .collaboration-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cav-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cav-stat-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cav-page-title {
+    font-size: 1.75rem;
+  }
+
+  .cav-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .cav-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .cav-stat-number {
+    font-size: 1.75rem;
+  }
+} 

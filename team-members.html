@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Team - Professor Archak Mittal</title>
+    <meta name="description" content="Meet the research team working with Professor Archak Mittal on transportation engineering and connected vehicle technologies.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Prof. Archak Mittal</span>
+                        <span class="logo-subtitle">IIT Bombay</span>
+                    </div>
+                </a>
+
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="research.html" class="nav-link">Research</a>
+                    <a href="publications.html" class="nav-link">Publications</a>
+                    <a href="awards.html" class="nav-link">Awards</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="patents.html" class="nav-link">Patents</a>
+                    <a href="team-members.html" class="nav-link active">Team</a>
+                    <a href="cav.html" class="nav-link" target="_blank">CAV Lab</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <span class="logo-name">Prof. Archak Mittal</span>
+                    <p class="logo-subtitle">IIT Bombay</p>
+                </div>
+            </div>
+            <div class="mobile-menu-links">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link">About</a>
+                <a href="research.html" class="mobile-nav-link">Research</a>
+                <a href="publications.html" class="mobile-nav-link">Publications</a>
+                <a href="awards.html" class="mobile-nav-link">Awards</a>
+                <a href="projects.html" class="mobile-nav-link">Projects</a>
+                <a href="patents.html" class="mobile-nav-link">Patents</a>
+                <a href="cav.html" class="mobile-nav-link">CAV</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Research Team</h1>
+                <p class="page-description">
+                    Meet the talented researchers and students working on cutting-edge transportation engineering projects.
+                </p>
+            </div>
+        </section>
+
+        <!-- Current Members -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Current Members</h2>
+                    <p class="section-description">
+                        Our active research team working on innovative transportation engineering solutions.
+                    </p>
+                </div>
+
+                <!-- Team Tree Structure -->
+                <div class="team-tree-container">
+                    <!-- Professor (Root) -->
+                    <div class="team-tree-root">
+                        <div class="team-member-compact professor">
+                            <div class="member-avatar-compact">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="member-info-compact">
+                                <h4 class="member-name-compact">Prof. Archak Mittal</h4>
+                                <p class="member-role-compact">Principal Investigator</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Categories -->
+                    <div class="team-tree-branches">
+                        <!-- Post-Doctoral Fellows -->
+                        <div class="team-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-user-graduate"></i>
+                                <h3>Post-Doctoral Fellows</h3>
+                            </div>
+                            <div class="team-members-compact" id="current-postdoc">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- PhD Candidates -->
+                        <div class="team-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-user-tie"></i>
+                                <h3>PhD Candidates</h3>
+                            </div>
+                            <div class="team-members-compact" id="current-phd">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- M.Tech Students -->
+                        <div class="team-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-user-graduate"></i>
+                                <h3>M.Tech Students</h3>
+                            </div>
+                            <div class="team-members-compact" id="current-mtech">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- B.Tech Students -->
+                        <div class="team-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-user-graduate"></i>
+                                <h3>B.Tech Students</h3>
+                            </div>
+                            <div class="team-members-compact" id="current-btech">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Project Staff -->
+                        <div class="team-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-users"></i>
+                                <h3>Project Staff</h3>
+                            </div>
+                            <div class="team-members-compact" id="current-staff">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Members -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Past Members</h2>
+                    <p class="section-description">
+                        Alumni and former team members who have contributed to our research success.
+                    </p>
+                </div>
+
+                <!-- Past Team Tree Structure -->
+                <div class="team-tree-container past-members">
+                    <!-- Alumni Icon (Root) -->
+                    <div class="team-tree-root">
+                        <div class="team-member-compact alumni">
+                            <div class="member-avatar-compact">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="member-info-compact">
+                                <h4 class="member-name-compact">Alumni Network</h4>
+                                <p class="member-role-compact">Former Team Members</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past Team Categories -->
+                    <div class="team-tree-branches">
+                        <!-- Past Post-Doctoral Fellows -->
+                        <div class="team-branch past-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-user-graduate"></i>
+                                <h3>Post-Doctoral Fellows</h3>
+                            </div>
+                            <div class="team-members-compact" id="past-postdoc">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Past PhD Candidates -->
+                        <div class="team-branch past-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-user-tie"></i>
+                                <h3>PhD Candidates</h3>
+                            </div>
+                            <div class="team-members-compact" id="past-phd">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Past M.Tech Students -->
+                        <div class="team-branch past-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-user-graduate"></i>
+                                <h3>M.Tech Students</h3>
+                            </div>
+                            <div class="team-members-compact" id="past-mtech">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Past B.Tech Students -->
+                        <div class="team-branch past-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-user-graduate"></i>
+                                <h3>B.Tech Students</h3>
+                            </div>
+                            <div class="team-members-compact" id="past-btech">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- Past Project Staff -->
+                        <div class="team-branch past-branch">
+                            <div class="branch-header">
+                                <i class="fas fa-users"></i>
+                                <h3>Project Staff</h3>
+                            </div>
+                            <div class="team-members-compact" id="past-staff">
+                                <!-- Team members will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join the Team -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Join Our Research Team</h2>
+                    <p class="section-description">
+                        We're always looking for talented researchers and students to join our team.
+                    </p>
+                </div>
+
+                <div class="join-team-grid">
+                    <div class="join-team-card">
+                        <div class="join-team-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="join-team-title">PhD Opportunities</h3>
+                        <p class="join-team-description">
+                            Pursue doctoral research in transportation engineering with cutting-edge projects and industry collaboration.
+                        </p>
+                        <a href="research.html#current-openings" class="btn btn-outline">
+                            View Openings
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="join-team-card">
+                        <div class="join-team-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3 class="join-team-title">Postdoctoral Positions</h3>
+                        <p class="join-team-description">
+                            Join as a postdoctoral researcher to work on advanced transportation technologies and publish high-impact research.
+                        </p>
+                        <a href="research.html#current-openings" class="btn btn-outline">
+                            View Openings
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="join-team-card">
+                        <div class="join-team-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="join-team-title">Collaboration</h3>
+                        <p class="join-team-description">
+                            Interested in research collaboration? Get in touch to discuss potential partnerships and joint projects.
+                        </p>
+                        <a href="contact.html" class="btn btn-outline">
+                            Contact Us
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="footer-name">Professor Archak Mittal</h3>
+                            <p class="footer-title">Assistant Professor, IIT Bombay</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Department of Civil Engineering, Indian Institute of Technology Bombay. Specializing in transportation
+                        engineering, connected vehicles, and intelligent transportation systems for smarter, safer cities.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <div class="contact-icon-small">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="contact-primary">archak@civil.iitb.ac.in</p>
+                                <p class="contact-secondary">archak@iitb.ac.in</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-small">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+91-22-2576-7132</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-small">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="contact-primary">Room 37, Department of Civil Engineering</p>
+                                <p class="contact-secondary">IIT Bombay, Powai, Mumbai - 400076</p>
+                                <p class="contact-secondary">Maharashtra, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="footer-section-title">Quick Links</h3>
+                    <ul class="footer-link-list">
+                        <li><a href="about.html" class="footer-link">About Me</a></li>
+                        <li><a href="research.html" class="footer-link">Research Interests</a></li>
+                        <li><a href="publications.html" class="footer-link">Publications</a></li>
+                        <li><a href="projects.html" class="footer-link">Research Projects</a></li>
+                        <li><a href="patents.html" class="footer-link">Patents</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact & Opportunities</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-external">
+                    <h3 class="footer-section-title">External Links</h3>
+                    <ul class="footer-link-list">
+                        <li>
+                            <a href="https://scholar.google.com/citations?user=nM_oGqQAAAAJ&hl=en" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Google Scholar Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.civil.iitb.ac.in/faculty/details/prof-archak-mittal" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                IIT Bombay Faculty Page
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://homepages.iitb.ac.in/~archak/" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Personal Homepage
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/archak-mittal" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                LinkedIn Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://fellows.ias.ac.in/profile/v/AS2024015" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Indian Academy of Sciences
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://orcid.org/0000-0001-6186-4513" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                ORCID Profile
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <p class="footer-institution">Indian Institute of Technology Bombay</p>
+                        <p class="footer-department">Department of Civil Engineering</p>
+                    </div>
+                </div>
+                <div class="footer-bottom-right">
+                    <p class="footer-copyright">
+                        © <span id="currentYear"></span> Professor Archak Mittal. All rights reserved.
+                    </p>
+                    <p class="footer-tagline">
+                        Transportation Systems Engineering • Connected Vehicles • Smart Cities
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Team members data structure
+        let teamMembers = {
+            current: {
+                postdoc: [],
+                phd: [],
+                mtech: [],
+                btech: [],
+                staff: []
+            },
+            past: {
+                postdoc: [],
+                phd: [],
+                mtech: [],
+                staff: []
+            }
+        };
+
+        // Load team members from localStorage
+        function loadTeamMembers() {
+            const saved = localStorage.getItem('teamMembers');
+            if (saved) {
+                teamMembers = JSON.parse(saved);
+            } else {
+                // Load default data if no saved data exists
+                teamMembers = {
+                    current: {
+                        postdoc: [
+                            {
+                                name: "Bharti",
+                                designation: "Post-Doctoral Fellow",
+                                date: "July 2024 - Present",
+                                about: "Specializing in traffic flow prediction and AI applications for smart city traffic management using real-time data analytics.",
+                                email: "bharti@iitb.ac.in",
+                                linkedin: "https://linkedin.com/in/bharti-researcher",
+                                googleScholar: "https://scholar.google.com/citations?user=bharti-profile"
+                            }
+                        ],
+                        phd: [
+                            {
+                                name: "Aaditi Kumari",
+                                designation: "PhD Candidate",
+                                date: "January 2023 - Present",
+                                about: "Researching V2X communication, transport safety and sustainability. Working on simulation frameworks for connected vehicles in urban environments.",
+                                email: "aaditi.kumari@iitb.ac.in",
+                                linkedin: "https://linkedin.com/in/aaditi-kumari",
+                                googleScholar: "https://scholar.google.com/citations?user=aaditi-profile"
+                            },
+                            {
+                                name: "Angshuman Baruah",
+                                designation: "PhD Candidate",
+                                date: "August 2022 - Present",
+                                about: "Focusing on V2X communication in adverse weather conditions and road safety improvements during challenging weather scenarios.",
+                                email: "angshuman.baruah@iitb.ac.in",
+                                linkedin: "https://linkedin.com/in/angshuman-baruah",
+                                googleScholar: "https://scholar.google.com/citations?user=angshuman-profile"
+                            },
+                            {
+                                name: "Parth Loya",
+                                designation: "PhD Candidate",
+                                date: "January 2024 - Present",
+                                about: "Conducting research on motorcycle behavior analysis and urban mobility patterns for improved traffic management.",
+                                email: "parth.loya@iitb.ac.in",
+                                linkedin: "https://linkedin.com/in/parth-loya",
+                                googleScholar: "https://scholar.google.com/citations?user=parth-profile"
+                            }
+                        ],
+                        mtech: [
+                            {
+                                name: "Rahul Sharma",
+                                designation: "M.Tech Student",
+                                date: "July 2024 - Present",
+                                about: "Working on intelligent transportation systems and traffic signal optimization for urban environments.",
+                                email: "rahul.sharma@iitb.ac.in",
+                                linkedin: "https://linkedin.com/in/rahul-sharma",
+                                googleScholar: "https://scholar.google.com/citations?user=rahul-profile"
+                            }
+                        ],
+                        btech: [
+                            {
+                                name: "Priya Patel",
+                                designation: "B.Tech Student",
+                                date: "May 2024 - Present",
+                                about: "Undergraduate research assistant working on data analysis for connected vehicle applications.",
+                                email: "priya.patel@iitb.ac.in",
+                                linkedin: "https://linkedin.com/in/priya-patel",
+                                googleScholar: ""
+                            }
+                        ],
+                        staff: [
+                            {
+                                name: "Amit Kumar",
+                                designation: "Project Staff",
+                                date: "March 2024 - Present",
+                                about: "Technical staff supporting research projects in connected vehicle technologies and field data collection.",
+                                email: "amit.kumar@iitb.ac.in",
+                                linkedin: "https://linkedin.com/in/amit-kumar",
+                                googleScholar: ""
+                            }
+                        ]
+                    },
+                    past: {
+                        postdoc: [
+                            {
+                                name: "Dr. Sarah Johnson",
+                                designation: "Former Post-Doctoral Fellow",
+                                date: "January 2022 - June 2024",
+                                about: "Completed postdoctoral research on autonomous vehicle integration in mixed traffic environments.",
+                                email: "sarah.johnson@university.edu",
+                                linkedin: "https://linkedin.com/in/sarah-johnson",
+                                googleScholar: "https://scholar.google.com/citations?user=sarah-profile"
+                            }
+                        ],
+                        phd: [
+                            {
+                                name: "Dr. Rajesh Kumar",
+                                designation: "Former PhD Candidate",
+                                date: "August 2019 - July 2023",
+                                about: "Successfully defended PhD thesis on 'Advanced Traffic Signal Control Systems for Smart Cities'.",
+                                email: "rajesh.kumar@company.com",
+                                linkedin: "https://linkedin.com/in/rajesh-kumar",
+                                googleScholar: "https://scholar.google.com/citations?user=rajesh-profile"
+                            }
+                        ],
+                        mtech: [
+                            {
+                                name: "Anjali Singh",
+                                designation: "Former M.Tech Student",
+                                date: "July 2022 - May 2024",
+                                about: "Completed M.Tech thesis on 'Machine Learning Applications in Traffic Flow Prediction'.",
+                                email: "anjali.singh@company.com",
+                                linkedin: "https://linkedin.com/in/anjali-singh",
+                                googleScholar: "https://scholar.google.com/citations?user=anjali-profile"
+                            }
+                        ],
+                        btech: [
+                            {
+                                name: "Vikram Mehta",
+                                designation: "Former B.Tech Student",
+                                date: "January 2023 - December 2023",
+                                about: "Completed undergraduate research project on 'IoT Applications in Transportation'.",
+                                email: "vikram.mehta@company.com",
+                                linkedin: "https://linkedin.com/in/vikram-mehta",
+                                googleScholar: ""
+                            }
+                        ],
+                        staff: [
+                            {
+                                name: "Deepak Verma",
+                                designation: "Former Project Staff",
+                                date: "June 2022 - February 2024",
+                                about: "Provided technical support for multiple research projects in transportation engineering.",
+                                email: "deepak.verma@company.com",
+                                linkedin: "https://linkedin.com/in/deepak-verma",
+                                googleScholar: ""
+                            }
+                        ]
+                    }
+                };
+            }
+        }
+
+        // Function to create team member card
+        function createTeamMemberCard(member) {
+            return `
+                <div class="team-member-card">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">${member.name}</h3>
+                        <p class="member-role">${member.designation}</p>
+                        <p class="member-date">${member.date}</p>
+                        <p class="member-about">${member.about}</p>
+                        <div class="member-social-links">
+                            ${member.email ? `<a href="mailto:${member.email}" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>` : ''}
+                            ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                            ${member.googleScholar ? `<a href="${member.googleScholar}" target="_blank" class="social-link" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to render team members
+        function renderTeamMembers() {
+            // Render current members
+            Object.keys(teamMembers.current).forEach(category => {
+                const container = document.getElementById(`current-${category}`);
+                if (container && teamMembers.current[category].length > 0) {
+                    container.innerHTML = teamMembers.current[category].map(member => createCompactTeamMemberCard(member)).join('');
+                } else if (container) {
+                    container.innerHTML = '<p class="no-members">No current members in this category.</p>';
+                }
+            });
+
+            // Render past members
+            Object.keys(teamMembers.past).forEach(category => {
+                const container = document.getElementById(`past-${category}`);
+                if (container && teamMembers.past[category].length > 0) {
+                    container.innerHTML = teamMembers.past[category].map(member => createCompactTeamMemberCard(member)).join('');
+                } else if (container) {
+                    container.innerHTML = '<p class="no-members">No past members in this category.</p>';
+                }
+            });
+        }
+
+        // Function to create compact team member card for tree structure
+        function createCompactTeamMemberCard(member) {
+            return `
+                <div class="team-member-compact">
+                    <div class="member-avatar-compact">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info-compact">
+                        <h4 class="member-name-compact">${member.name}</h4>
+                        <p class="member-role-compact">${member.designation}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize team members when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTeamMembers();
+            renderTeamMembers();
+        });
+    </script>
+</body>
+</html> 

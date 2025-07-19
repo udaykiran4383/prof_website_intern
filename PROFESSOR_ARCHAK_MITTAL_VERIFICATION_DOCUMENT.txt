@@ -1,0 +1,608 @@
+PROFESSOR ARCHAK MITTAL - COMPREHENSIVE VERIFICATION DOCUMENT
+
+PERSONAL INFORMATION
+
+Full Name: Professor Archak Mittal  
+Current Position: Assistant Professor  
+Department: Department of Civil Engineering  
+Institution: Indian Institute of Technology Bombay (IIT Bombay)  
+Location: Mumbai, Maharashtra, India  
+Specialization: Transportation Engineering, Connected Vehicles, Smart Cities  
+
+CONTACT INFORMATION
+
+Primary Email: archak@civil.iitb.ac.in  
+Secondary Email: archak@iitb.ac.in  
+Phone: +91-22-2576-7132  
+Office Address: Department of Civil Engineering, IIT Bombay, Powai, Mumbai - 400076, Maharashtra, India  
+
+Office Hours:
+- Monday - Friday: 9:00 AM - 6:00 PM
+- Saturday: 10:00 AM - 2:00 PM
+- Sunday: By appointment only
+
+Calendar: Available for scheduling meetings via Google Calendar integration
+
+ACADEMIC BACKGROUND
+
+Education
+- Ph.D. in Civil and Environmental Engineering (2018)
+  - Institution: Northwestern University, Evanston, IL, USA
+  - Focus: Transportation Systems Analysis and Planning
+  - Dissertation: "Assessing the impact of connected vehicles at freeway, arterial, and path level through characterization, modeling and active management"
+
+- M.S. in Civil and Environmental Engineering (2016)
+  - Institution: Northwestern University, Evanston, IL, USA
+  - Focus: Transportation Systems Analysis and Planning
+  - Specialization: Traffic flow theory, intelligent transportation systems, and connected vehicle technologies
+
+- B.Tech with Honors in Civil Engineering (2014)
+  - Institution: Indian Institute of Technology Bombay, Mumbai, India
+  - Focus: Civil Engineering with Minor in Management
+  - Minor: Shailesh J. Mehta School of Management, IIT Bombay
+  - Specialization: Transportation and infrastructure engineering
+
+PROFESSIONAL EXPERIENCE
+
+Current Academic Positions (2024 - Present)
+
+1. Assistant Professor
+   - Department of Civil Engineering, IIT Bombay
+   - Leading research in transportation systems engineering, V2X technologies, and intelligent transportation systems
+   - Specializing in connected and autonomous vehicles, smart infrastructure, and big data analytics in traffic management
+
+2. Associate Professor
+   - IIT Bombay-FedEx ALFA, Centre for Advanced Logistics and Focused Analytics
+   - Focus on advanced logistics research and analytics applications in transportation and supply chain management
+
+3. Professor In-Charge
+   - SeDriCa, Urban Autonomous Vehicle Team, IIT Bombay
+   - Leading the urban autonomous vehicle team
+   - Overseeing research and development of autonomous vehicle technologies tailored for Indian road conditions
+
+Industry Experience
+
+1. Connected Autonomous Vehicle Research Engineer (2023 - 2024)
+   - Organization: Leidos Corporation
+   - Location: Washington DC, USA
+   - Role: Conducted advanced research on connected autonomous vehicle systems for government and commercial applications
+   - Focus: V2X communication technologies and intelligent transportation infrastructure
+
+2. Senior Transportation Modeling Research Engineer (2018 - 2023)
+   - Organization: Ford Motor Company
+   - Location: Michigan, USA
+   - Role: Led transportation modeling research initiatives
+   - Contributions: Developed algorithms for connected vehicle applications, contributed to Ford's autonomous driving and smart mobility technologies
+
+International Experience
+
+1. Visiting Scholar (2013)
+   - Institution: Leibniz University Hannover (under Prof. Dr.-Ing. habil. Peter Wriggers)
+   - Location: Hannover, Germany
+   - Focus: Collaborative research in computational mechanics and transportation engineering applications
+
+2. Visiting Scholar (2012)
+   - Institution: University Roma Tre (under Prof. Nicola L. Rizzi)
+   - Location: Rome, Italy
+   - Focus: International research collaboration in structural mechanics and transportation infrastructure analysis
+
+RESEARCH AREAS & EXPERTISE
+
+Core Research Domains
+
+1. Connected & Automated Vehicles
+   - Vehicle-to-Vehicle (V2V) Communication
+   - Vehicle-to-Infrastructure (V2I) Systems
+   - Autonomous Vehicle Decision Making
+   - Mixed Traffic Environment Modeling
+   - Connected Vehicle Simulation Frameworks
+
+2. Smart Cities & Intelligent Transportation Systems
+   - Adaptive Traffic Signal Control
+   - Real-time Traffic Management
+   - Smart Infrastructure Integration
+   - Urban Mobility Planning
+   - Multi-modal Transportation Systems
+
+3. Traffic Safety & Vulnerable Road Users
+   - Pedestrian & Cyclist Safety Systems
+   - Collision Avoidance Technologies
+   - Emergency Response Optimization
+   - Weather-Adaptive Safety Systems
+   - Accident Prediction & Prevention
+
+4. AI & Machine Learning in Transportation
+   - Traffic Flow Prediction
+   - Dynamic Route Optimization
+   - Behavioral Pattern Analysis
+   - Intelligent Decision Support Systems
+   - Autonomous Vehicle AI
+
+Technical Skills
+
+Simulation Software:
+- SUMO (Open-source traffic simulation)
+- VISSIM (Microscopic traffic simulation)
+- MATLAB/Simulink
+- Custom simulation frameworks
+
+Programming & Analytics:
+- Python (Primary language for data analysis and ML)
+- R (Statistical computing)
+- TensorFlow/PyTorch (Deep learning)
+- Apache Spark (Big data processing)
+
+Data & Infrastructure:
+- GIS Systems (Spatial analysis)
+- IoT Sensors (Real-time data collection)
+- Cloud Computing (Scalable computing)
+- Edge Computing (Real-time processing)
+
+CURRENT RESEARCH PROJECTS
+
+Active Projects
+
+1. Development of a Simulation Framework for Connected Vehicles in Urban Environments
+   - Duration: 2024 - 2026
+   - Funding: ₹50 Lakhs
+   - Agency: Department of Science and Technology, India
+   - Technologies: SUMO, Python, Machine Learning, IoT
+   - Team Members: Aaditi Kumari (PhD - V2X Communication), Angshuman Baruah (PhD - V2X in Adverse Weather)
+
+2. Smart City Traffic Management Using Real-Time Data Analytics
+   - Duration: 2023 - 2025
+   - Funding: ₹35 Lakhs
+   - Agency: Ministry of Electronics and Information Technology
+   - Technologies: Big Data, AI/ML, Cloud Computing, Edge Computing
+   - Team Members: Bharti (Postdoctoral Fellow - Traffic Flow Prediction, AI), Parth Loya (PhD - Motorcycle Behaviour Analysis)
+
+3. Safety Enhancements for Vulnerable Road Users Through ITS
+   - Duration: 2024 - 2027
+   - Funding: ₹40 Lakhs
+   - Agency: Indian Council of Medical Research
+   - Technologies: Computer Vision, Deep Learning, Sensor Fusion, 5G
+   - Team Members: Aaditi Kumari (PhD - Transport Safety and Sustainability), Angshuman Baruah (PhD - Road Safety in Adverse Weather)
+
+Completed Projects
+
+1. Optimization of Traffic Signal Control in Connected Environments (2022-2023)
+   - Outcome: Published 3 papers, Filed 1 patent
+   - Achievements: Developed novel signal timing optimization algorithms, reduced average delay by 25%
+
+2. Machine Learning for Traffic Flow Prediction (2021-2022)
+   - Outcome: Improved prediction accuracy by 35%
+   - Achievements: Developed ensemble learning models, integrated multiple data sources
+
+Research Statistics
+- Active Projects: 5
+- Total Funding: ₹1.25 Crore
+- Team Members: 8
+- Publications from Projects: 15
+
+PUBLICATIONS
+
+Publication Statistics
+- Total Publications: 50+
+- Total Citations: 800+
+- h-index: 18
+- Latest Publication: 2024
+
+Featured Publications
+
+1. "Network flow relations and travel time reliability in a connected environment" (2017)
+   - Journal: Transportation Research Part C
+   - Citations: 32
+   - Focus: Network flow patterns and travel time reliability in connected vehicle environments
+
+2. "Game theory-based framework for modeling human–vehicle interactions on the road" (2020)
+   - Journal: Transportation Research Part B
+   - Citations: 30
+   - Focus: Game theory modeling of human-automated vehicle interactions
+
+3. "Incentive design and profit sharing in multi-modal transportation networks" (2022)
+   - Journal: Transportation Research Part A
+   - Citations: 27
+   - Focus: Incentive mechanisms in multi-modal transportation systems
+
+4. "RIde-hail vehicle routing (RIVER) as a congestion game" (2023)
+   - Journal: Transportation Science
+   - Citations: 19
+   - Focus: Ride-hail vehicle routing optimization
+
+5. "Predictive dynamic speed limit in a connected environment for a weather affected traffic network: A case study of Chicago" (2018)
+   - Journal: Transportation Research Part C
+   - Citations: 19
+   - Focus: Predictive speed limit systems for weather-affected traffic
+
+Recent Publications (2023-2024)
+
+1. "Machine learning approaches for traffic signal optimization in smart cities" (2024)
+   - Journal: IEEE Transactions on Intelligent Transportation Systems
+   - Focus: ML algorithms for dynamic traffic signal control
+
+2. "Safety analysis of vulnerable road users in connected vehicle environments" (2024)
+   - Journal: Accident Analysis & Prevention
+   - Focus: Pedestrian and cyclist safety improvements
+
+3. "Real-time traffic management using connected vehicle data" (2023)
+   - Journal: Transportation Research Part C
+   - Focus: Real-time traffic management systems
+
+4. "Optimization of dedicated lanes for connected and automated vehicles" (2023)
+   - Journal: Transportation Research Part B
+   - Focus: Dedicated lane optimization for CAVs
+
+Publication Categories
+- Connected Vehicles: 15 Publications
+- Smart Cities: 12 Publications
+- Traffic Safety: 8 Publications
+- AI & Optimization: 10 Publications
+
+AWARDS & RECOGNITION
+
+Major Awards (2024)
+
+1. Associate, Indian Academy of Sciences (2024)
+   - Organization: Indian Academy of Sciences, Bengaluru, India
+   - Recognition: Outstanding contributions to transportation engineering research
+   - Significance: Prestigious national recognition
+
+2. Young Faculty Award in Engineering (2024)
+   - Organization: Venus International Foundation, Chennai, India
+   - Recognition: Exceptional research contributions and academic excellence
+   - Focus: Civil and transportation engineering
+
+3. Young Faculty Award (2024)
+   - Organization: Indian Institute of Technology Bombay, India
+   - Recognition: Outstanding research contributions as young faculty member
+
+Academic Excellence Awards
+
+1. Dissertation Fellowship (2018)
+   - Institution: Northwestern University, USA
+   - Purpose: Outstanding doctoral research in transportation engineering
+
+2. Walter P. Murphy Fellowship (2014)
+   - Institution: Northwestern University, USA
+   - Recognition: Academic excellence and research potential in engineering
+
+3. DAAD-WISE Fellowship (2013)
+   - Organization: German Academic Exchange Service, Germany
+   - Purpose: Research collaboration at Leibniz University Hannover
+
+4. MITACS Fellowship (2012)
+   - Organization: MITACS, Canada
+   - Purpose: International collaboration in Canada
+
+5. Undergraduate Research Award (2012)
+   - Institution: IIT Bombay, India
+   - Recognition: Outstanding undergraduate research in civil engineering
+
+Research Recognition
+
+1. Best Paper Award (2023)
+   - Event: International Conference on Transportation Systems
+   - Focus: Connected vehicle optimization in urban environments
+
+2. Outstanding Reviewer (2022)
+   - Journal: Transportation Research Part C
+   - Recognition: Exceptional peer review contributions
+
+3. Early Career Researcher Award (2021)
+   - Organization: Transportation Research Board
+   - Recognition: Significant early-career contributions
+
+Award Statistics
+- Total Awards: 8
+- Fellowships: 3
+- International Recognition: 2
+- Most Recent: 2024
+
+PATENTS & INTELLECTUAL PROPERTY
+
+Patent Statistics
+- Total Patents: 4
+- Published: 2
+- Under Review: 2
+- Latest Filing: 2023
+
+Published Patents
+
+1. "A Novel Cellular Automata-Based Virtual Traffic Environment to Evaluate the Impacts of Connected and Automated Vehicles"
+   - Patent Number: IN 202141057849 A
+   - Filed: December 2021
+   - Published: June 2022
+   - Focus: Cellular automata-based simulation framework for CAV impact evaluation
+   - Applications: CAV impact assessment, traffic flow optimization, virtual testing
+
+2. "A Novel Simulation-Based Approach for Designing Corridors with Dedicated Lanes for Connected and Automated Vehicles"
+   - Patent Number: IN 202241045123 A
+   - Filed: August 2022
+   - Published: February 2023
+   - Focus: Simulation-based methodology for CAV corridor design
+   - Applications: Highway corridor design, dedicated lane optimization, infrastructure planning
+
+Patents Under Review
+
+1. "Novel System and Method to Improve Traffic Flow by Reducing Vehicle Speed Variability with Dynamic Speed Limit"
+   - Filed: 2023
+   - Status: Under Review
+   - Focus: Dynamic speed limit control for traffic flow improvement
+   - Applications: Dynamic speed limit implementation, traffic flow optimization
+
+2. "Models to Simulate Light Personal Electric Vehicles (LPEVs) Mode in a Virtual Environment"
+   - Filed: 2023
+   - Status: Under Review
+   - Focus: LPEV simulation models for urban transportation
+   - Applications: LPEV behavior modeling, urban mobility simulation, sustainable transportation
+
+Innovation Areas
+- Connected Vehicles: 2 Patents
+- Traffic Control: 1 Patent
+- Electric Vehicles: 1 Patent
+
+RESEARCH FACILITIES & INFRASTRUCTURE
+
+CAV Research Lab Facilities
+
+1. Simulation Laboratory
+   - Equipment: High-performance computing clusters, multiple simulation software licenses
+   - Software: SUMO, VISSIM, real-time visualization systems
+   - Purpose: Advanced traffic simulation and connected vehicle modeling
+
+2. V2X Communication Lab
+   - Equipment: DSRC communication units, 5G communication modules, network testing equipment
+   - Purpose: Testing vehicle-to-everything communication protocols
+
+3. Data Analytics Center
+   - Capabilities: Large-scale data storage, machine learning frameworks, real-time data processing
+   - Purpose: Big data processing and analytics for transportation datasets
+
+4. Vehicle Testing Platform
+   - Features: Instrumented test vehicles, GPS and sensor systems, communication equipment
+   - Purpose: Real-world validation of connected vehicle technologies
+
+CURRENT RESEARCH HIGHLIGHTS
+
+Ongoing Initiatives
+
+1. AI-Powered Traffic Signal Optimization
+   - Status: Ongoing
+   - Expected Impact: 25-30% reduction in urban traffic delays
+   - Collaborators: Ford Motor Company, City of Mumbai
+   - Focus: Machine learning algorithms for real-time signal optimization
+
+2. V2X Communication in Adverse Weather
+   - Status: Ongoing
+   - Expected Impact: Enhanced safety in challenging weather conditions
+   - Collaborators: Northwestern University, Leidos Corporation
+   - Focus: Connected vehicle communication under various weather conditions
+
+3. Autonomous Vehicle Integration in Mixed Traffic
+   - Status: Planning
+   - Expected Impact: Smoother transition to autonomous vehicle adoption
+   - Collaborators: IIT Bombay SeDriCa Team, Industry Partners
+   - Focus: AV integration in Indian road conditions
+
+FUTURE RESEARCH DIRECTIONS
+
+1. Sustainable Transportation
+   - Focus: Electric vehicle integration, green logistics, carbon-neutral mobility
+   - Goal: Environmentally sustainable transportation systems
+
+2. Fully Autonomous Systems
+   - Focus: Fully autonomous transportation networks with seamless vehicle-infrastructure integration
+   - Goal: Intelligent coordination systems
+
+3. Emerging Markets Adaptation
+   - Focus: Adapting advanced transportation technologies for emerging markets
+   - Goal: Solutions for mixed traffic and diverse vehicle types
+
+4. Space-Ground Integration
+   - Focus: Satellite-based communication and positioning systems
+   - Goal: Next-generation connected vehicle applications
+
+COLLABORATIONS & PARTNERSHIPS
+
+Industry Partnerships
+- Ford Motor Company: Connected vehicle technologies and autonomous driving
+- Leidos Corporation: Government and commercial CAV applications
+- City of Mumbai: Smart city traffic management implementation
+
+Academic Collaborations
+- Northwestern University: Research collaboration and student exchange
+- Leibniz University Hannover: International research partnerships
+- University Roma Tre: Structural mechanics and infrastructure analysis
+
+Government Initiatives
+- Department of Science and Technology, India: Research funding and support
+- Ministry of Electronics and Information Technology: Smart city projects
+- Indian Council of Medical Research: Traffic safety research
+
+TEACHING & MENTORSHIP
+
+Current Team Members
+
+Postdoctoral Fellows:
+- Bharti: Traffic Flow Prediction, AI applications
+
+PhD Candidates:
+- Aaditi Kumari: V2X Communication, Transport Safety and Sustainability
+- Angshuman Baruah: V2X in Adverse Weather, Road Safety in Adverse Weather
+- Parth Loya: Motorcycle Behaviour Analysis
+
+Research Team Statistics
+- Total Team Members: 8
+- Postdoctoral Fellows: 1
+- PhD Candidates: 3
+- Other Researchers: 4
+
+EXTERNAL PROFILES & LINKS
+
+1. Google Scholar Profile: https://scholar.google.com/citations?user=nM_oGqQAAAAJ&hl=en
+2. IIT Bombay Faculty Page: https://www.civil.iitb.ac.in/faculty/details/prof-archak-mittal
+3. Personal Homepage: https://homepages.iitb.ac.in/~archak/
+4. LinkedIn Profile: https://linkedin.com/in/archak-mittal
+5. Indian Academy of Sciences: https://fellows.ias.ac.in/profile/v/AS2024015
+
+WEBSITE STRUCTURE & FEATURES
+
+Main Website Pages
+1. Home (index.html): Overview, stats, biography, research highlights, recent publications, awards, calendar, contact
+2. About (about.html): Academic journey, education, professional experience, skills & expertise
+3. Research (research.html): Research philosophy, core areas, methodology, tools, current highlights, future directions
+4. Publications (publications.html): Featured publications, recent publications, categories, citation system
+5. Projects (projects.html): Current projects, completed projects, collaboration opportunities
+6. Awards (awards.html): Major awards, academic excellence, research recognition, statistics
+7. Patents (patents.html): Published patents, pending patents, innovation areas, technology transfer
+8. CAV (cav.html): Connected & Automated Vehicles research lab, facilities, research areas, collaboration
+9. Contact (contact.html): Contact details, office location, research collaboration, contact form
+10. Admin (admin.html): Content management system for dynamic updates
+
+Dynamic Features
+- Current Openings Management: Dynamic job postings for research positions
+- Research Areas Management: Dynamic research area updates
+- Team Management: Dynamic team member profiles
+- Publications Management: Dynamic publication database
+- Awards Management: Dynamic awards tracking
+- Site Settings: Dynamic content management
+
+Technical Features
+- Responsive Design: Mobile-friendly interface
+- Interactive Elements: Citation modals, contact forms, calendar integration
+- Data Management: Local storage for dynamic content
+- Admin Dashboard: Secure content management system
+- Google Calendar Integration: Real-time scheduling
+- External Links: Integration with academic profiles
+
+RESEARCH METHODOLOGY
+
+5-Step Research Process
+
+1. Problem Identification & Literature Review
+   - Tools: Systematic reviews, stakeholder interviews, gap analysis
+   - Focus: Identifying critical transportation challenges
+
+2. Theoretical Framework Development
+   - Tools: Mathematical modeling, game theory, optimization theory, statistical analysis
+   - Focus: Developing mathematical models and theoretical frameworks
+
+3. Simulation & Modeling
+   - Tools: SUMO, VISSIM, Python/MATLAB, custom simulators
+   - Focus: Creating comprehensive simulation environments
+
+4. Real-World Validation
+   - Tools: Field studies, data collection, pilot testing, performance metrics
+   - Focus: Validating simulation results through field studies
+
+5. Implementation & Technology Transfer
+   - Tools: Industry collaboration, patent filing, policy development, commercialization
+   - Focus: Translating research outcomes into practical applications
+
+IMPACT & CONTRIBUTIONS
+
+Research Impact
+- Citations: 800+ total citations
+- h-index: 18
+- Publications: 50+ peer-reviewed publications
+- Patents: 4 filed patents (2 published, 2 pending)
+- Funding: ₹1.25 Crore in research funding
+
+Industry Impact
+- Ford Motor Company: Contributed to autonomous driving and smart mobility technologies
+- Leidos Corporation: Advanced CAV research for government applications
+- Technology Transfer: Multiple patents with commercialization potential
+
+Academic Impact
+- Teaching: Mentoring 8+ research team members
+- Collaborations: International partnerships with leading institutions
+- Recognition: Prestigious awards including IAS Associate (2024)
+
+Societal Impact
+- Smart Cities: Contributing to intelligent transportation systems
+- Safety: Developing systems for vulnerable road user protection
+- Sustainability: Research on sustainable transportation solutions
+
+COMPARISON WITH INTERNET-BASED VERIFICATION
+
+Key Discrepancies Identified
+
+1. Publication Count
+- Website: 50+ publications
+- Internet Verification: 54 peer-reviewed papers (July 2025)
+- Status: Website needs updating to reflect current count
+
+2. Citation Metrics
+- Website: 800+ citations
+- Internet Verification: 842 citations (+20% vs 2024)
+- Status: Website shows slightly outdated citation count
+
+3. Patent Count
+- Website: 4 patents (2 published, 2 pending)
+- Internet Verification: 6 US patents + 2 Indian patents
+- Status: Significant discrepancy - website missing 4 US patents
+
+4. Additional US Patents (Missing from Website)
+- "City-scale modelling & evaluation of dedicated lanes for CAVs" US 20230054616 A1
+- "Hybrid light personal electric vehicle analysis" US 11,367,345 B2
+- "Robot-assisted package delivery with integrated curbside parking monitoring" US 11,915,172 B2
+
+5. Additional Awards
+- Internet Verification: Stella Dafermos Best Paper (TRB AEP40) – honorable mention 2023
+- Status: This award is missing from the website
+
+6. Additional Projects
+- Internet Verification: NSF (USA, Co-PI) - Autonomous modular public-transit study ($300k, 2021-23)
+- Status: This project is not mentioned on the website
+
+7. Additional Professional Details
+- Internet Verification: Room 37, Civil Engineering Dept. (specific office location)
+- Status: Website shows general department address
+
+8. Additional Research Infrastructure
+- Internet Verification: Vehicle-to-Grid (V2G) Demonstrator, Grid Integration Laboratory
+- Status: These facilities are not mentioned on the website
+
+9. Additional Professional Service
+- Internet Verification: Co-organizer of "Advancing CAV Technologies for Indian Ecosystems" workshop (2024)
+- Status: This event is not mentioned on the website
+
+10. Additional External Profiles
+- Internet Verification: ORCID: 0000-0001-6186-4513
+- Status: ORCID profile is not linked on the website
+
+Recommendations for Website Updates
+
+High Priority Updates
+1. Update publication count from "50+" to "54 peer-reviewed papers"
+2. Update citation count from "800+" to "842+ citations"
+3. Add missing US patents to the patents page
+4. Add Stella Dafermos Best Paper award to awards section
+5. Add NSF project to research projects section
+
+Medium Priority Updates
+1. Add specific office location (Room 37, Civil Engineering Dept.)
+2. Add V2G Demonstrator facility to research infrastructure
+3. Add ORCID profile link to external profiles
+4. Add workshop organization to professional service section
+
+Content Enhancement Opportunities
+1. Add more detailed publication metrics (i10-index: 25)
+2. Include more specific research outcomes and impact metrics
+3. Add information about open-source contributions (Python libraries, datasets)
+4. Include more details about student innovation programs (SeDriCa achievements)
+
+Validation Summary
+
+The internet-based verification largely confirms the accuracy of the website content, with the main discrepancies being:
+- Underreporting of achievements (missing patents, awards, projects)
+- Slightly outdated metrics (publication and citation counts)
+- Missing specific details (office location, additional facilities)
+
+The website content is accurate but incomplete compared to the comprehensive internet-based profile. This suggests the website needs regular updates to reflect Professor Mittal's ongoing achievements and current metrics.
+
+---
+
+Source: Comprehensive analysis of entire website codebase including HTML files, JavaScript functionality, and Next.js application  
+Verification Status: All details extracted from actual website content and verified against multiple source files  
+External Validation: Compared with comprehensive internet-based verification document (July 2025) 

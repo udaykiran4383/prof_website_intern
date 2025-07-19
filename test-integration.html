@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Team Integration Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 15px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Admin-Team Integration Test</h1>
+    
+    <div class="test-section">
+        <h3>Test 1: Check Current localStorage</h3>
+        <button onclick="checkLocalStorage()">Check localStorage</button>
+        <div id="current-data" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test 2: Add Test Team Member</h3>
+        <button onclick="addTestMember()">Add Test Member</button>
+        <div id="add-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test 3: Verify Team Member Added</h3>
+        <button onclick="verifyMember()">Verify Member</button>
+        <div id="verify-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test 4: Clear Test Data</h3>
+        <button onclick="clearTestData()">Clear Test Data</button>
+        <div id="clear-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Navigation</h3>
+        <button onclick="window.open('http://localhost:8000/admin.html', '_blank')">Open Admin Panel</button>
+        <button onclick="window.open('http://localhost:8000/team-members.html', '_blank')">Open Team Page</button>
+    </div>
+
+    <script>
+        function checkLocalStorage() {
+            const data = localStorage.getItem('teamMembers');
+            const result = document.getElementById('current-data');
+            if (data) {
+                const parsed = JSON.parse(data);
+                result.innerHTML = '<strong>Current localStorage data:</strong><br><pre>' + JSON.stringify(parsed, null, 2) + '</pre>';
+            } else {
+                result.innerHTML = '<strong>No teamMembers data in localStorage</strong>';
+            }
+        }
+        
+        function addTestMember() {
+            const testMember = {
+                name: "Test User",
+                designation: "Test Role",
+                date: "Test Date",
+                about: "Test Description",
+                email: "test@test.com",
+                linkedin: "",
+                googleScholar: ""
+            };
+            
+            let teamMembers = {
+                current: { postdoc: [], phd: [], mtech: [], btech: [], staff: [] },
+                past: { postdoc: [], phd: [], mtech: [], btech: [], staff: [] }
+            };
+            
+            const existing = localStorage.getItem('teamMembers');
+            if (existing) {
+                teamMembers = JSON.parse(existing);
+            }
+            
+            teamMembers.current.postdoc.push(testMember);
+            localStorage.setItem('teamMembers', JSON.stringify(teamMembers));
+            
+            document.getElementById('add-result').innerHTML = '<strong>Test member added successfully!</strong><br>Name: ' + testMember.name + '<br>Role: ' + testMember.designation;
+        }
+        
+        function verifyMember() {
+            const data = localStorage.getItem('teamMembers');
+            const result = document.getElementById('verify-result');
+            
+            if (data) {
+                const parsed = JSON.parse(data);
+                const testMember = parsed.current.postdoc.find(member => member.name === "Test User");
+                
+                if (testMember) {
+                    result.innerHTML = '<strong>✅ Test member found!</strong><br>Name: ' + testMember.name + '<br>Role: ' + testMember.designation;
+                } else {
+                    result.innerHTML = '<strong>❌ Test member not found</strong>';
+                }
+            } else {
+                result.innerHTML = '<strong>❌ No teamMembers data found</strong>';
+            }
+        }
+        
+        function clearTestData() {
+            localStorage.removeItem('teamMembers');
+            document.getElementById('clear-result').innerHTML = '<strong>✅ Test data cleared from localStorage</strong>';
+        }
+        
+        // Auto-check localStorage on page load
+        window.onload = function() {
+            checkLocalStorage();
+        };
+    </script>
+</body>
+</html> 

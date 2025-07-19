@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Professor Archak Mittal</title>
+    <meta name="description" content="Research projects by Professor Archak Mittal in transportation engineering, connected vehicles, and smart city systems.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        console.log('Script loading...');
+        // Define toggleProject function immediately to ensure it's available
+        window.toggleProject = function(button) {
+            console.log('toggleProject function called');
+            
+            try {
+                const projectCard = button.closest('.project-card');
+                const projectContent = projectCard.querySelector('.project-content');
+                
+                console.log('projectCard:', projectCard);
+                console.log('projectContent:', projectContent);
+                
+                if (!projectContent) {
+                    console.error('Could not find project-content element');
+                    return;
+                }
+                
+                const isExpanded = projectContent.classList.contains('expanded');
+                console.log('isExpanded:', isExpanded);
+                
+                if (isExpanded) {
+                    // Collapse
+                    projectContent.classList.remove('expanded');
+                    button.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
+                    button.classList.remove('expanded');
+                    console.log('Project collapsed');
+                } else {
+                    // Expand
+                    projectContent.classList.add('expanded');
+                    button.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Details';
+                    button.classList.add('expanded');
+                    console.log('Project expanded');
+                }
+            } catch (error) {
+                console.error('Error in toggleProject:', error);
+            }
+        };
+        
+        // Also define it as a regular function for compatibility
+        function toggleProject(button) {
+            return window.toggleProject(button);
+        }
+        
+        // Test if function is available
+        console.log('toggleProject function available:', typeof window.toggleProject);
+        console.log('toggleProject function available (regular):', typeof toggleProject);
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Prof. Archak Mittal</span>
+                        <span class="logo-subtitle">IIT Bombay</span>
+                    </div>
+                </a>
+
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="research.html" class="nav-link">Research</a>
+                    <a href="publications.html" class="nav-link">Publications</a>
+                    <a href="awards.html" class="nav-link">Awards</a>
+                    <a href="projects.html" class="nav-link active">Projects</a>
+                    <a href="patents.html" class="nav-link">Patents</a>
+                    <a href="team-members.html" class="nav-link">Team</a>
+                    <a href="cav.html" class="nav-link" target="_blank">CAV Lab</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <span class="logo-name">Prof. Archak Mittal</span>
+                    <p class="logo-subtitle">IIT Bombay</p>
+                </div>
+            </div>
+            <div class="mobile-menu-links">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link">About</a>
+                <a href="research.html" class="mobile-nav-link">Research</a>
+                <a href="publications.html" class="mobile-nav-link">Publications</a>
+                <a href="awards.html" class="mobile-nav-link">Awards</a>
+                <a href="projects.html" class="mobile-nav-link">Projects</a>
+                <a href="patents.html" class="mobile-nav-link">Patents</a>
+                <a href="cav.html" class="mobile-nav-link">CAV</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Research Projects</h1>
+                <p class="page-description">
+                    Current and completed research initiatives in transportation engineering, connected vehicles, and intelligent systems.
+                </p>
+            </div>
+        </section>
+
+        <!-- Current Projects -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Current Research Projects</h2>
+                    <p class="section-description">
+                        Ongoing research initiatives addressing modern transportation challenges and smart city solutions.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card current">
+                        <div class="project-status ongoing">
+                            <i class="fas fa-play-circle"></i>
+                            Ongoing
+                        </div>
+                        <div class="project-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Development of a Simulation Framework for Connected Vehicles in Urban Environments</h3>
+                            <p class="project-description">
+                                A comprehensive project to model vehicle interactions in dense city settings, focusing on V2V and V2I communications to optimize traffic flow and enhance safety.
+                            </p>
+                            
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <strong>Duration:</strong> 2024 - 2026
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Funding:</strong> ₹50 Lakhs
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Agency:</strong> Department of Science and Technology, India
+                                </div>
+                            </div>
+
+                            <div class="project-tech">
+                                <span class="tech-tag">SUMO</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">IoT</span>
+                            </div>
+
+                            <div class="project-objectives">
+                                <h4>Key Objectives:</h4>
+                                <ul>
+                                    <li>Develop realistic simulation models for connected vehicle environments</li>
+                                    <li>Optimize traffic flow through intelligent vehicle coordination</li>
+                                    <li>Enhance safety protocols for mixed traffic scenarios</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-team">
+                                <h4>Research Team:</h4>
+                                <div class="team-members">
+                                    <div class="team-member">
+                                        <strong>Aaditi Kumari</strong> - PhD Candidate (V2X Communication)
+                                    </div>
+                                    <div class="team-member">
+                                        <strong>Angshuman Baruah</strong> - PhD Candidate (V2X in Adverse Weather)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="project-expand" onclick="toggleProject(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-card current">
+                        <div class="project-status ongoing">
+                            <i class="fas fa-play-circle"></i>
+                            Ongoing
+                        </div>
+                        <div class="project-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Smart City Traffic Management Using Real-Time Data Analytics</h3>
+                            <p class="project-description">
+                                Research on optimizing traffic flow with live data from various sources including sensors, cameras, and connected vehicles to create adaptive traffic management systems.
+                            </p>
+                            
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <strong>Duration:</strong> 2023 - 2025
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Funding:</strong> ₹35 Lakhs
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Agency:</strong> Ministry of Electronics and Information Technology
+                                </div>
+                            </div>
+
+                            <div class="project-tech">
+                                <span class="tech-tag">Big Data</span>
+                                <span class="tech-tag">AI/ML</span>
+                                <span class="tech-tag">Cloud Computing</span>
+                                <span class="tech-tag">Edge Computing</span>
+                            </div>
+
+                            <div class="project-objectives">
+                                <h4>Key Objectives:</h4>
+                                <ul>
+                                    <li>Implement real-time traffic monitoring systems</li>
+                                    <li>Develop predictive traffic management algorithms</li>
+                                    <li>Create adaptive signal control mechanisms</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-team">
+                                <h4>Research Team:</h4>
+                                <div class="team-members">
+                                    <div class="team-member">
+                                        <strong>Bharti</strong> - Postdoctoral Fellow (Traffic Flow Prediction, AI)
+                                    </div>
+                                    <div class="team-member">
+                                        <strong>Parth Loya</strong> - PhD Candidate (Motorcycle Behaviour Analysis)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="project-expand" onclick="toggleProject(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-card current">
+                        <div class="project-status ongoing">
+                            <i class="fas fa-play-circle"></i>
+                            Ongoing
+                        </div>
+                        <div class="project-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Safety Enhancements for Vulnerable Road Users Through ITS</h3>
+                            <p class="project-description">
+                                Focus on pedestrian and cyclist safety using technology, developing intelligent systems to detect and protect vulnerable road users in urban environments.
+                            </p>
+                            
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <strong>Duration:</strong> 2024 - 2027
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Funding:</strong> ₹40 Lakhs
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Agency:</strong> Indian Council of Medical Research
+                                </div>
+                            </div>
+
+                            <div class="project-tech">
+                                <span class="tech-tag">Computer Vision</span>
+                                <span class="tech-tag">Deep Learning</span>
+                                <span class="tech-tag">Sensor Fusion</span>
+                                <span class="tech-tag">5G</span>
+                            </div>
+
+                            <div class="project-objectives">
+                                <h4>Key Objectives:</h4>
+                                <ul>
+                                    <li>Develop VRU detection and tracking systems</li>
+                                    <li>Create predictive safety algorithms</li>
+                                    <li>Implement emergency response protocols</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-team">
+                                <h4>Research Team:</h4>
+                                <div class="team-members">
+                                    <div class="team-member">
+                                        <strong>Aaditi Kumari</strong> - PhD Candidate (Transport Safety and Sustainability)
+                                    </div>
+                                    <div class="team-member">
+                                        <strong>Angshuman Baruah</strong> - PhD Candidate (Road Safety in Adverse Weather)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="project-expand" onclick="toggleProject(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-card current">
+                        <div class="project-status ongoing">
+                            <i class="fas fa-play-circle"></i>
+                            Ongoing
+                        </div>
+                        <div class="project-icon">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Autonomous Modular Public-Transit Study</h3>
+                            <p class="project-description">
+                                Research on autonomous modular public transit systems, focusing on flexible transportation solutions and efficient urban mobility through modular vehicle design and intelligent routing.
+                            </p>
+                            
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <strong>Duration:</strong> 2021 - 2023
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Funding:</strong> $300,000 USD
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Agency:</strong> National Science Foundation (NSF), USA (Co-PI)
+                                </div>
+                            </div>
+
+                            <div class="project-tech">
+                                <span class="tech-tag">Autonomous Systems</span>
+                                <span class="tech-tag">Modular Design</span>
+                                <span class="tech-tag">Public Transit</span>
+                                <span class="tech-tag">Intelligent Routing</span>
+                            </div>
+
+                            <div class="project-objectives">
+                                <h4>Key Objectives:</h4>
+                                <ul>
+                                    <li>Develop modular autonomous transit vehicle concepts</li>
+                                    <li>Design flexible routing algorithms for dynamic demand</li>
+                                    <li>Optimize passenger capacity and energy efficiency</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-team">
+                                <h4>Research Team:</h4>
+                                <div class="team-members">
+                                    <div class="team-member">
+                                        <strong>International Collaboration</strong> - NSF Research Team
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="project-expand" onclick="toggleProject(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Completed Projects -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Completed Projects</h2>
+                    <p class="section-description">
+                        Successfully completed research projects with significant outcomes and contributions.
+                    </p>
+                </div>
+
+                <div class="completed-projects-grid">
+                    <div class="project-card completed">
+                        <div class="project-status completed-status">
+                            <i class="fas fa-check-circle"></i>
+                            Completed
+                        </div>
+                        <div class="project-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Optimization of Traffic Signal Control in Connected Environments</h3>
+                            <p class="project-description">
+                                Developed advanced algorithms for traffic signal optimization using connected vehicle data to improve traffic flow and reduce delays in urban networks.
+                            </p>
+                            
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <strong>Duration:</strong> 2022 - 2023
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Outcome:</strong> Published 3 papers, Filed 1 patent
+                                </div>
+                            </div>
+
+                            <div class="project-outcomes">
+                                <h4>Key Achievements:</h4>
+                                <ul>
+                                    <li>Developed novel signal timing optimization algorithms</li>
+                                    <li>Reduced average delay by 25% in simulation studies</li>
+                                    <li>Filed patent for dynamic signal control system</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card completed">
+                        <div class="project-status completed-status">
+                            <i class="fas fa-check-circle"></i>
+                            Completed
+                        </div>
+                        <div class="project-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Machine Learning for Traffic Flow Prediction</h3>
+                            <p class="project-description">
+                                Applied machine learning techniques to predict traffic patterns and congestion in urban networks, improving accuracy of traffic forecasting systems.
+                            </p>
+                            
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <strong>Duration:</strong> 2021 - 2022
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Outcome:</strong> Improved prediction accuracy by 35%
+                                </div>
+                            </div>
+
+                            <div class="project-outcomes">
+                                <h4>Key Achievements:</h4>
+                                <ul>
+                                    <li>Developed ensemble learning models for traffic prediction</li>
+                                    <li>Integrated multiple data sources for enhanced accuracy</li>
+                                    <li>Created real-time prediction framework</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Statistics -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Research Impact</h2>
+                    <p class="section-description">
+                        Overview of research funding, publications, and technological outcomes from project work.
+                    </p>
+                </div>
+
+                <div class="stats-grid project-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Active Projects</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="stat-number">₹1.55 Cr+</div>
+                        <div class="stat-label">Total Funding</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Team Members</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaboration Opportunities -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Collaboration Opportunities</h2>
+                    <p class="section-description">
+                        Open to collaborations in emerging areas of transportation research and technology development.
+                    </p>
+                </div>
+
+                <div class="collaboration-areas">
+                    <div class="collab-card">
+                        <div class="collab-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="collab-title">Industry Partnerships</h3>
+                        <p class="collab-description">
+                            Seeking industry collaborations for real-world implementation of connected vehicle technologies and smart transportation solutions.
+                        </p>
+                    </div>
+
+                    <div class="collab-card">
+                        <div class="collab-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="collab-title">Academic Collaborations</h3>
+                        <p class="collab-description">
+                            Open to joint research projects with national and international academic institutions in transportation engineering and smart cities.
+                        </p>
+                    </div>
+
+                    <div class="collab-card">
+                        <div class="collab-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="collab-title">Technology Transfer</h3>
+                        <p class="collab-description">
+                            Interested in technology transfer opportunities to commercialize research outcomes and create practical transportation solutions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="footer-name">Professor Archak Mittal</h3>
+                            <p class="footer-title">Assistant Professor, IIT Bombay</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Department of Civil Engineering, Indian Institute of Technology Bombay. Specializing in transportation
+                        engineering, connected vehicles, and intelligent transportation systems for smarter, safer cities.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <div class="contact-icon-small">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="contact-primary">archak@civil.iitb.ac.in</p>
+                                <p class="contact-secondary">archak@iitb.ac.in</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-small">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+91-22-2576-7132</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-small">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="contact-primary">Room 37, Department of Civil Engineering</p>
+                                <p class="contact-secondary">IIT Bombay, Powai, Mumbai - 400076</p>
+                                <p class="contact-secondary">Maharashtra, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="footer-section-title">Quick Links</h3>
+                    <ul class="footer-link-list">
+                        <li><a href="about.html" class="footer-link">About Me</a></li>
+                        <li><a href="research.html" class="footer-link">Research Interests</a></li>
+                        <li><a href="publications.html" class="footer-link">Publications</a></li>
+                        <li><a href="projects.html" class="footer-link">Research Projects</a></li>
+                        <li><a href="patents.html" class="footer-link">Patents</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact & Opportunities</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-external">
+                    <h3 class="footer-section-title">External Links</h3>
+                    <ul class="footer-link-list">
+                        <li>
+                            <a href="https://scholar.google.com/citations?user=nM_oGqQAAAAJ&hl=en" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Google Scholar Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.civil.iitb.ac.in/faculty/details/prof-archak-mittal" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                IIT Bombay Faculty Page
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://homepages.iitb.ac.in/~archak/" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Personal Homepage
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/archak-mittal" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                LinkedIn Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://fellows.ias.ac.in/profile/v/AS2024015" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Indian Academy of Sciences
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://orcid.org/0000-0001-6186-4513" target="_blank" class="footer-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                ORCID Profile
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <p class="footer-institution">Indian Institute of Technology Bombay</p>
+                        <p class="footer-department">Department of Civil Engineering</p>
+                    </div>
+                </div>
+                <div class="footer-bottom-right">
+                    <p class="footer-copyright">
+                        © <span id="currentYear"></span> Professor Archak Mittal. All rights reserved.
+                    </p>
+                    <p class="footer-tagline">
+                        Transportation Systems Engineering • Connected Vehicles • Smart Cities
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
