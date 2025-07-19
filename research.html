@@ -8,6 +8,255 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .research-tabs {
+            display: flex;
+            border-bottom: 2px solid #e5e7eb;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+        
+        .research-tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: #6b7280;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .research-tab.active {
+            color: var(--iitb-navy);
+            border-bottom-color: var(--iitb-accent);
+        }
+        
+        .research-tab:hover {
+            color: var(--iitb-navy);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .compact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .compact-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--iitb-accent);
+        }
+        
+        .compact-card h3 {
+            color: var(--iitb-navy);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .compact-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .compact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .compact-list li {
+            padding: 0.25rem 0;
+            font-size: 0.85rem;
+            color: #4b5563;
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .compact-list li:before {
+            content: "•";
+            color: var(--iitb-accent);
+            position: absolute;
+            left: 0;
+        }
+        
+        .methodology-compact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .method-step-compact {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--iitb-accent);
+        }
+        
+        .method-step-compact h4 {
+            color: var(--iitb-navy);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .method-step-compact p {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+        
+        .tools-compact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tool-tag-compact {
+            background: var(--iitb-navy);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .highlights-compact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .highlight-card-compact {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--iitb-accent);
+        }
+        
+        .highlight-status-compact {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .highlight-status-compact.ongoing {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .highlight-status-compact.planning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .highlight-card-compact h3 {
+            color: var(--iitb-navy);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-card-compact p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .highlight-impact-compact {
+            font-size: 0.8rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-collaboration-compact {
+            font-size: 0.8rem;
+            color: #4b5563;
+        }
+        
+        .service-compact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .service-card-compact {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-left: 4px solid var(--iitb-accent);
+        }
+        
+        .service-card-compact .service-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--iitb-navy);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .service-card-compact h3 {
+            color: var(--iitb-navy);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .service-card-compact p {
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            .research-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .research-tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .compact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .methodology-compact {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlights-compact {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-compact {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -123,511 +372,230 @@
             </div>
         </section>
 
-        <!-- Core Research Areas -->
+        <!-- Research Tabs -->
         <section class="section-padding bg-light">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Core Research Areas</h2>
-                    <p class="section-description">
-                        My research spans multiple interconnected domains in transportation engineering and intelligent systems.
-                    </p>
+                <div class="research-tabs">
+                    <button class="research-tab active" onclick="showTab('areas')">Research Areas</button>
+                    <button class="research-tab" onclick="showTab('methodology')">Methodology</button>
+                    <button class="research-tab" onclick="showTab('tools')">Tools & Technologies</button>
+                    <button class="research-tab" onclick="showTab('highlights')">Current Highlights</button>
+                    <button class="research-tab" onclick="showTab('service')">Professional Service</button>
                 </div>
 
-                <div class="core-research-grid">
-                    <div class="research-domain">
-                        <div class="domain-header">
-                            <div class="domain-icon">
-                                <i class="fas fa-car"></i>
-                            </div>
-                            <h3 class="domain-title">Connected & Automated Vehicles</h3>
+                <!-- Research Areas Tab -->
+                <div id="areas" class="tab-content active">
+                    <div class="compact-grid">
+                        <div class="compact-card">
+                            <h3><i class="fas fa-car"></i> Connected & Automated Vehicles</h3>
+                            <p>Developing next-generation connected and automated vehicle technologies that enhance safety, efficiency, and sustainability.</p>
+                            <ul class="compact-list">
+                                <li>Vehicle-to-Vehicle (V2V) Communication</li>
+                                <li>Vehicle-to-Infrastructure (V2I) Systems</li>
+                                <li>Autonomous Vehicle Decision Making</li>
+                                <li>Mixed Traffic Environment Modeling</li>
+                            </ul>
                         </div>
-                        <div class="domain-content">
-                            <p class="domain-description">
-                                Developing next-generation connected and automated vehicle technologies that enhance safety, efficiency, and sustainability in transportation systems.
-                            </p>
-                            <div class="research-details-grid">
-                                <div class="research-topics">
-                                    <h4>Key Focus Areas:</h4>
-                                    <ul class="topics-list">
-                                        <li>Vehicle-to-Vehicle (V2V) Communication</li>
-                                        <li>Vehicle-to-Infrastructure (V2I) Systems</li>
-                                        <li>Autonomous Vehicle Decision Making</li>
-                                        <li>Mixed Traffic Environment Modeling</li>
-                                        <li>Connected Vehicle Simulation Frameworks</li>
-                                    </ul>
-                                </div>
-                                <div class="methodologies">
-                                    <h4>Research Methodologies:</h4>
-                                    <ul class="methods-list">
-                                        <li>Advanced Traffic Simulation (SUMO, VISSIM)</li>
-                                        <li>Machine Learning & AI Applications</li>
-                                        <li>Game Theory & Optimization</li>
-                                        <li>Real-world Field Testing</li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                        <div class="compact-card">
+                            <h3><i class="fas fa-city"></i> Smart Cities & ITS</h3>
+                            <p>Creating intelligent transportation systems that integrate seamlessly with smart city infrastructure to optimize urban mobility.</p>
+                            <ul class="compact-list">
+                                <li>Adaptive Traffic Signal Control</li>
+                                <li>Real-time Traffic Management</li>
+                                <li>Smart Infrastructure Integration</li>
+                                <li>Multi-modal Transportation Systems</li>
+                            </ul>
+                        </div>
+
+                        <div class="compact-card">
+                            <h3><i class="fas fa-shield-alt"></i> Traffic Safety & VRU</h3>
+                            <p>Developing safety-critical systems and technologies to protect vulnerable road users and reduce traffic accidents.</p>
+                            <ul class="compact-list">
+                                <li>Pedestrian & Cyclist Safety Systems</li>
+                                <li>Collision Avoidance Technologies</li>
+                                <li>Emergency Response Optimization</li>
+                                <li>Accident Prediction & Prevention</li>
+                            </ul>
+                        </div>
+
+                        <div class="compact-card">
+                            <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+                            <p>Applying artificial intelligence and machine learning techniques to solve complex transportation problems.</p>
+                            <ul class="compact-list">
+                                <li>Traffic Flow Prediction</li>
+                                <li>Dynamic Route Optimization</li>
+                                <li>Behavioral Pattern Analysis</li>
+                                <li>Intelligent Decision Support Systems</li>
+                            </ul>
                         </div>
                     </div>
+                </div>
 
-                    <div class="research-domain">
-                        <div class="domain-header">
-                            <div class="domain-icon">
-                                <i class="fas fa-city"></i>
-                            </div>
-                            <h3 class="domain-title">Smart Cities & Intelligent Transportation Systems</h3>
-                        </div>
-                        <div class="domain-content">
-                            <p class="domain-description">
-                                Creating intelligent transportation systems that integrate seamlessly with smart city infrastructure to optimize urban mobility and reduce congestion.
-                            </p>
-                            <div class="research-details-grid">
-                                <div class="research-topics">
-                                    <h4>Key Focus Areas:</h4>
-                                    <ul class="topics-list">
-                                        <li>Adaptive Traffic Signal Control</li>
-                                        <li>Real-time Traffic Management</li>
-                                        <li>Smart Infrastructure Integration</li>
-                                        <li>Urban Mobility Planning</li>
-                                        <li>Multi-modal Transportation Systems</li>
-                                    </ul>
-                                </div>
-                                <div class="methodologies">
-                                    <h4>Research Methodologies:</h4>
-                                    <ul class="methods-list">
-                                        <li>Big Data Analytics</li>
-                                        <li>IoT Sensor Networks</li>
-                                        <li>Cloud & Edge Computing</li>
-                                        <li>Predictive Modeling</li>
-                                    </ul>
-                                </div>
+                <!-- Methodology Tab -->
+                <div id="methodology" class="tab-content">
+                    <div class="methodology-compact">
+                        <div class="method-step-compact">
+                            <h4>1. Problem Identification & Literature Review</h4>
+                            <p>Identifying critical transportation challenges through stakeholder engagement and comprehensive literature analysis.</p>
+                            <div class="tools-compact">
+                                <span class="tool-tag-compact">Systematic Reviews</span>
+                                <span class="tool-tag-compact">Stakeholder Interviews</span>
+                                <span class="tool-tag-compact">Gap Analysis</span>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="research-domain">
-                        <div class="domain-header">
-                            <div class="domain-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3 class="domain-title">Traffic Safety & Vulnerable Road Users</h3>
-                        </div>
-                        <div class="domain-content">
-                            <p class="domain-description">
-                                Developing safety-critical systems and technologies to protect vulnerable road users and reduce traffic accidents through intelligent detection and response systems.
-                            </p>
-                            <div class="research-details-grid">
-                                <div class="research-topics">
-                                    <h4>Key Focus Areas:</h4>
-                                    <ul class="topics-list">
-                                        <li>Pedestrian & Cyclist Safety Systems</li>
-                                        <li>Collision Avoidance Technologies</li>
-                                        <li>Emergency Response Optimization</li>
-                                        <li>Weather-Adaptive Safety Systems</li>
-                                        <li>Accident Prediction & Prevention</li>
-                                    </ul>
-                                </div>
-                                <div class="methodologies">
-                                    <h4>Research Methodologies:</h4>
-                                    <ul class="methods-list">
-                                        <li>Computer Vision & Image Processing</li>
-                                        <li>Deep Learning for Object Detection</li>
-                                        <li>Sensor Fusion Technologies</li>
-                                        <li>Safety Performance Analysis</li>
-                                    </ul>
-                                </div>
+                        <div class="method-step-compact">
+                            <h4>2. Theoretical Framework Development</h4>
+                            <p>Developing mathematical models and theoretical frameworks that capture transportation phenomena.</p>
+                            <div class="tools-compact">
+                                <span class="tool-tag-compact">Mathematical Modeling</span>
+                                <span class="tool-tag-compact">Game Theory</span>
+                                <span class="tool-tag-compact">Optimization Theory</span>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="research-domain">
-                        <div class="domain-header">
-                            <div class="domain-icon">
-                                <i class="fas fa-brain"></i>
+                        <div class="method-step-compact">
+                            <h4>3. Simulation & Modeling</h4>
+                            <p>Creating comprehensive simulation environments to test and validate theoretical concepts.</p>
+                            <div class="tools-compact">
+                                <span class="tool-tag-compact">SUMO</span>
+                                <span class="tool-tag-compact">VISSIM</span>
+                                <span class="tool-tag-compact">Python/MATLAB</span>
                             </div>
-                            <h3 class="domain-title">AI & Machine Learning in Transportation</h3>
                         </div>
-                        <div class="domain-content">
-                            <p class="domain-description">
-                                Applying artificial intelligence and machine learning techniques to solve complex transportation problems and enhance system performance.
-                            </p>
-                            <div class="research-details-grid">
-                                <div class="research-topics">
-                                    <h4>Key Focus Areas:</h4>
-                                    <ul class="topics-list">
-                                        <li>Traffic Flow Prediction</li>
-                                        <li>Dynamic Route Optimization</li>
-                                        <li>Behavioral Pattern Analysis</li>
-                                        <li>Intelligent Decision Support Systems</li>
-                                        <li>Autonomous Vehicle AI</li>
-                                    </ul>
-                                </div>
-                                <div class="methodologies">
-                                    <h4>Research Methodologies:</h4>
-                                    <ul class="methods-list">
-                                        <li>Deep Neural Networks</li>
-                                        <li>Reinforcement Learning</li>
-                                        <li>Time Series Analysis</li>
-                                        <li>Natural Language Processing</li>
-                                    </ul>
-                                </div>
+
+                        <div class="method-step-compact">
+                            <h4>4. Real-World Validation</h4>
+                            <p>Validating simulation results through field studies, data collection, and pilot implementations.</p>
+                            <div class="tools-compact">
+                                <span class="tool-tag-compact">Field Studies</span>
+                                <span class="tool-tag-compact">Data Collection</span>
+                                <span class="tool-tag-compact">Pilot Testing</span>
+                            </div>
+                        </div>
+
+                        <div class="method-step-compact">
+                            <h4>5. Implementation & Technology Transfer</h4>
+                            <p>Translating research outcomes into practical applications through industry partnerships.</p>
+                            <div class="tools-compact">
+                                <span class="tool-tag-compact">Industry Collaboration</span>
+                                <span class="tool-tag-compact">Patent Filing</span>
+                                <span class="tool-tag-compact">Commercialization</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Research Methodology -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Research Methodology</h2>
-                    <p class="section-description">
-                        My research employs a multidisciplinary approach combining theoretical analysis, simulation modeling, and real-world validation.
-                    </p>
+                <!-- Tools Tab -->
+                <div id="tools" class="tab-content">
+                    <div class="compact-grid">
+                        <div class="compact-card">
+                            <h3><i class="fas fa-desktop"></i> Simulation Software</h3>
+                            <ul class="compact-list">
+                                <li><strong>SUMO:</strong> Open-source traffic simulation for large-scale network modeling</li>
+                                <li><strong>VISSIM:</strong> Microscopic traffic simulation for detailed vehicle behavior</li>
+                                <li><strong>MATLAB/Simulink:</strong> Mathematical computing for algorithm development</li>
+                                <li><strong>Custom Frameworks:</strong> Proprietary simulation frameworks for specific applications</li>
+                            </ul>
+                        </div>
+
+                        <div class="compact-card">
+                            <h3><i class="fas fa-code"></i> Programming & Analytics</h3>
+                            <ul class="compact-list">
+                                <li><strong>Python:</strong> Primary language for data analysis and ML</li>
+                                <li><strong>R:</strong> Statistical computing for advanced data analysis</li>
+                                <li><strong>TensorFlow/PyTorch:</strong> Deep learning frameworks for AI applications</li>
+                                <li><strong>Apache Spark:</strong> Big data processing for large-scale analysis</li>
+                            </ul>
+                        </div>
+
+                        <div class="compact-card">
+                            <h3><i class="fas fa-database"></i> Data & Infrastructure</h3>
+                            <ul class="compact-list">
+                                <li><strong>GIS Systems:</strong> Geographic information systems for spatial analysis</li>
+                                <li><strong>IoT Sensors:</strong> Real-time traffic data collection and monitoring</li>
+                                <li><strong>Cloud Computing:</strong> Scalable computing for large-scale simulations</li>
+                                <li><strong>Edge Computing:</strong> Distributed computing for real-time processing</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="methodology-timeline">
-                    <div class="method-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Problem Identification & Literature Review</h3>
-                            <p class="step-description">
-                                Identifying critical transportation challenges through stakeholder engagement and comprehensive literature analysis to understand current state-of-the-art and research gaps.
-                            </p>
-                            <div class="step-tools">
-                                <span class="tool-tag">Systematic Reviews</span>
-                                <span class="tool-tag">Stakeholder Interviews</span>
-                                <span class="tool-tag">Gap Analysis</span>
+                <!-- Highlights Tab -->
+                <div id="highlights" class="tab-content">
+                    <div class="highlights-compact">
+                        <div class="highlight-card-compact">
+                            <div class="highlight-status-compact ongoing">Ongoing</div>
+                            <h3>AI-Powered Traffic Signal Optimization</h3>
+                            <p>Developing machine learning algorithms that adapt traffic signal timing in real-time based on connected vehicle data and traffic patterns.</p>
+                            <div class="highlight-impact-compact">
+                                <strong>Expected Impact:</strong> 25-30% reduction in urban traffic delays
+                            </div>
+                            <div class="highlight-collaboration-compact">
+                                <strong>Collaborators:</strong> Ford Motor Company, City of Mumbai
                             </div>
                         </div>
-                    </div>
 
-                    <div class="method-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Theoretical Framework Development</h3>
-                            <p class="step-description">
-                                Developing mathematical models and theoretical frameworks that capture the essence of transportation phenomena and form the foundation for innovative solutions.
-                            </p>
-                            <div class="step-tools">
-                                <span class="tool-tag">Mathematical Modeling</span>
-                                <span class="tool-tag">Game Theory</span>
-                                <span class="tool-tag">Optimization Theory</span>
-                                <span class="tool-tag">Statistical Analysis</span>
+                        <div class="highlight-card-compact">
+                            <div class="highlight-status-compact ongoing">Ongoing</div>
+                            <h3>V2X Communication in Adverse Weather</h3>
+                            <p>Investigating how connected vehicle communication systems perform under various weather conditions and developing adaptive protocols.</p>
+                            <div class="highlight-impact-compact">
+                                <strong>Expected Impact:</strong> Enhanced safety in challenging weather conditions
+                            </div>
+                            <div class="highlight-collaboration-compact">
+                                <strong>Collaborators:</strong> Northwestern University, Leidos Corporation
                             </div>
                         </div>
-                    </div>
 
-                    <div class="method-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Simulation & Modeling</h3>
-                            <p class="step-description">
-                                Creating comprehensive simulation environments to test and validate theoretical concepts, allowing for controlled experimentation and scenario analysis.
-                            </p>
-                            <div class="step-tools">
-                                <span class="tool-tag">SUMO</span>
-                                <span class="tool-tag">VISSIM</span>
-                                <span class="tool-tag">Python/MATLAB</span>
-                                <span class="tool-tag">Custom Simulators</span>
+                        <div class="highlight-card-compact">
+                            <div class="highlight-status-compact planning">Planning</div>
+                            <h3>Autonomous Vehicle Integration in Mixed Traffic</h3>
+                            <p>Studying the integration of autonomous vehicles in mixed traffic environments typical of Indian road conditions.</p>
+                            <div class="highlight-impact-compact">
+                                <strong>Expected Impact:</strong> Smoother transition to autonomous vehicle adoption
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="method-step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Real-World Validation</h3>
-                            <p class="step-description">
-                                Validating simulation results through field studies, data collection, and pilot implementations to ensure practical applicability and effectiveness.
-                            </p>
-                            <div class="step-tools">
-                                <span class="tool-tag">Field Studies</span>
-                                <span class="tool-tag">Data Collection</span>
-                                <span class="tool-tag">Pilot Testing</span>
-                                <span class="tool-tag">Performance Metrics</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="method-step">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Implementation & Technology Transfer</h3>
-                            <p class="step-description">
-                                Translating research outcomes into practical applications through industry partnerships, technology transfer, and policy recommendations.
-                            </p>
-                            <div class="step-tools">
-                                <span class="tool-tag">Industry Collaboration</span>
-                                <span class="tool-tag">Patent Filing</span>
-                                <span class="tool-tag">Policy Development</span>
-                                <span class="tool-tag">Commercialization</span>
+                            <div class="highlight-collaboration-compact">
+                                <strong>Collaborators:</strong> IIT Bombay SeDriCa Team, Industry Partners
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Research Tools & Technologies -->
-        <section class="section-padding bg-light">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Research Tools & Technologies</h2>
-                    <p class="section-description">
-                        Leveraging cutting-edge tools and technologies to conduct advanced research in transportation engineering.
-                    </p>
-                </div>
-
-                <div class="tools-categories">
-                    <div class="tool-category">
-                        <h3 class="tool-category-title">
-                            <i class="fas fa-desktop"></i>
-                            Simulation Software
-                        </h3>
-                        <div class="tools-grid">
-                            <div class="tool-item">
-                                <h4>SUMO</h4>
-                                <p>Open-source traffic simulation package for large-scale network modeling and connected vehicle simulation.</p>
+                <!-- Service Tab -->
+                <div id="service" class="tab-content">
+                    <div class="service-compact">
+                        <div class="service-card-compact">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
                             </div>
-                            <div class="tool-item">
-                                <h4>VISSIM</h4>
-                                <p>Microscopic traffic simulation software for detailed vehicle behavior modeling and traffic analysis.</p>
+                            <h3>Workshop Organization</h3>
+                            <p>"Advancing CAV Technologies for Indian Ecosystems" (2024)</p>
+                        </div>
+
+                        <div class="service-card-compact">
+                            <div class="service-icon">
+                                <i class="fas fa-eye"></i>
                             </div>
-                            <div class="tool-item">
-                                <h4>MATLAB/Simulink</h4>
-                                <p>Mathematical computing platform for algorithm development and system modeling.</p>
+                            <h3>Peer Review</h3>
+                            <p>Active peer reviewer for leading transportation research journals</p>
+                        </div>
+
+                        <div class="service-card-compact">
+                            <div class="service-icon">
+                                <i class="fas fa-graduation-cap"></i>
                             </div>
-                            <div class="tool-item">
-                                <h4>Custom Frameworks</h4>
-                                <p>Proprietary simulation frameworks developed for specific connected vehicle research applications.</p>
-                            </div>
+                            <h3>Academic Committees</h3>
+                            <p>Member of various academic committees at IIT Bombay</p>
                         </div>
-                    </div>
-
-                    <div class="tool-category">
-                        <h3 class="tool-category-title">
-                            <i class="fas fa-code"></i>
-                            Programming & Analytics
-                        </h3>
-                        <div class="tools-grid">
-                            <div class="tool-item">
-                                <h4>Python</h4>
-                                <p>Primary programming language for data analysis, machine learning, and simulation development.</p>
-                            </div>
-                            <div class="tool-item">
-                                <h4>R</h4>
-                                <p>Statistical computing environment for advanced data analysis and visualization.</p>
-                            </div>
-                            <div class="tool-item">
-                                <h4>TensorFlow/PyTorch</h4>
-                                <p>Deep learning frameworks for AI applications in transportation systems.</p>
-                            </div>
-                            <div class="tool-item">
-                                <h4>Apache Spark</h4>
-                                <p>Big data processing framework for large-scale traffic data analysis.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tool-category">
-                        <h3 class="tool-category-title">
-                            <i class="fas fa-database"></i>
-                            Data & Infrastructure
-                        </h3>
-                        <div class="tools-grid">
-                            <div class="tool-item">
-                                <h4>GIS Systems</h4>
-                                <p>Geographic information systems for spatial analysis and transportation network modeling.</p>
-                            </div>
-                            <div class="tool-item">
-                                <h4>IoT Sensors</h4>
-                                <p>Internet of Things devices for real-time traffic data collection and monitoring.</p>
-                            </div>
-                            <div class="tool-item">
-                                <h4>Cloud Computing</h4>
-                                <p>Scalable computing resources for large-scale simulations and data processing.</p>
-                            </div>
-                            <div class="tool-item">
-                                <h4>Edge Computing</h4>
-                                <p>Distributed computing for real-time processing in connected vehicle applications.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Current Research Highlights -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Current Research Highlights</h2>
-                    <p class="section-description">
-                        Ongoing research initiatives that are pushing the boundaries of transportation engineering and connected vehicle technologies.
-                    </p>
-                </div>
-
-                <div class="highlights-grid">
-                    <div class="highlight-card">
-                        <div class="highlight-status">Ongoing</div>
-                        <h3 class="highlight-title">AI-Powered Traffic Signal Optimization</h3>
-                        <p class="highlight-description">
-                            Developing machine learning algorithms that adapt traffic signal timing in real-time based on connected vehicle data and traffic patterns.
-                        </p>
-                        <div class="highlight-impact">
-                            <strong>Expected Impact:</strong> 25-30% reduction in urban traffic delays
-                        </div>
-                        <div class="highlight-collaboration">
-                            <strong>Collaborators:</strong> Ford Motor Company, City of Mumbai
-                        </div>
-                    </div>
-
-                    <div class="highlight-card">
-                        <div class="highlight-status">Ongoing</div>
-                        <h3 class="highlight-title">V2X Communication in Adverse Weather</h3>
-                        <p class="highlight-description">
-                            Investigating how connected vehicle communication systems perform under various weather conditions and developing adaptive protocols.
-                        </p>
-                        <div class="highlight-impact">
-                            <strong>Expected Impact:</strong> Enhanced safety in challenging weather conditions
-                        </div>
-                        <div class="highlight-collaboration">
-                            <strong>Collaborators:</strong> Northwestern University, Leidos Corporation
-                        </div>
-                    </div>
-
-                    <div class="highlight-card">
-                        <div class="highlight-status">Planning</div>
-                        <h3 class="highlight-title">Autonomous Vehicle Integration in Mixed Traffic</h3>
-                        <p class="highlight-description">
-                            Studying the integration of autonomous vehicles in mixed traffic environments typical of Indian road conditions.
-                        </p>
-                        <div class="highlight-impact">
-                            <strong>Expected Impact:</strong> Smoother transition to autonomous vehicle adoption
-                        </div>
-                        <div class="highlight-collaboration">
-                            <strong>Collaborators:</strong> IIT Bombay SeDriCa Team, Industry Partners
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Future Directions -->
-        <section class="section-padding bg-light">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Future Research Directions</h2>
-                    <p class="section-description">
-                        Emerging areas and future directions that will shape the next generation of transportation research.
-                    </p>
-                </div>
-
-                <div class="future-directions-grid">
-                    <div class="direction-card">
-                        <div class="direction-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3 class="direction-title">Sustainable Transportation</h3>
-                        <p class="direction-description">
-                            Developing environmentally sustainable transportation systems through electric vehicle integration, 
-                            green logistics, and carbon-neutral mobility solutions.
-                        </p>
-                    </div>
-
-                    <div class="direction-card">
-                        <div class="direction-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3 class="direction-title">Fully Autonomous Systems</h3>
-                        <p class="direction-description">
-                            Advancing toward fully autonomous transportation networks with seamless vehicle-infrastructure 
-                            integration and intelligent coordination.
-                        </p>
-                    </div>
-
-                    <div class="direction-card">
-                        <div class="direction-icon">
-                            <i class="fas fa-globe-asia"></i>
-                        </div>
-                        <h3 class="direction-title">Emerging Markets Adaptation</h3>
-                        <p class="direction-description">
-                            Adapting advanced transportation technologies for emerging markets with unique challenges 
-                            like mixed traffic and diverse vehicle types.
-                        </p>
-                    </div>
-
-                    <div class="direction-card">
-                        <div class="direction-icon">
-                            <i class="fas fa-satellite"></i>
-                        </div>
-                        <h3 class="direction-title">Space-Ground Integration</h3>
-                        <p class="direction-description">
-                            Exploring satellite-based communication and positioning systems for next-generation 
-                            connected vehicle applications and global mobility.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Service -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Professional Service</h2>
-                    <p class="section-description">
-                        Active participation in professional organizations, conferences, and community service.
-                    </p>
-                </div>
-
-                <div class="service-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="service-title">Workshop Organization</h3>
-                        <p class="service-event">"Advancing CAV Technologies for Indian Ecosystems"</p>
-                        <div class="service-year">2024</div>
-                        <p class="service-description">
-                            Co-organized a comprehensive workshop focused on advancing connected and automated vehicle 
-                            technologies specifically tailored for Indian road conditions and transportation ecosystems.
-                        </p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h3 class="service-title">Peer Review</h3>
-                        <p class="service-event">Transportation Research Journals</p>
-                        <div class="service-year">Ongoing</div>
-                        <p class="service-description">
-                            Active peer reviewer for leading transportation research journals including Transportation 
-                            Research Part A, B, C, and other prestigious publications in the field.
-                        </p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 class="service-title">Academic Committees</h3>
-                        <p class="service-event">IIT Bombay Committees</p>
-                        <div class="service-year">Ongoing</div>
-                        <p class="service-description">
-                            Member of various academic committees at IIT Bombay, contributing to curriculum development, 
-                            research policy, and institutional advancement in transportation engineering.
-                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Current Openings -->
-        <section class="section-padding bg-light" id="current-openings">
+        <section class="section-padding" id="current-openings">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Current Openings</h2>
@@ -797,5 +765,26 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.research-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
