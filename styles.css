@@ -2003,20 +2003,15 @@ html {
   transition: all 0.3s ease;
 }
 
-.project-content:not(.expanded) .project-details,
-.project-content:not(.expanded) .project-tech,
-.project-content:not(.expanded) .project-objectives,
-.project-content:not(.expanded) .project-team {
+/* Hide project details by default - handled by JavaScript */
+.project-details,
+.project-tech,
+.project-objectives,
+.project-team {
   display: none;
 }
 
-/* Show elements when expanded */
-.project-content.expanded .project-details,
-.project-content.expanded .project-tech,
-.project-content.expanded .project-objectives,
-.project-content.expanded .project-team {
-  display: block;
-}
+/* Show elements when expanded - handled by JavaScript */
 
 .project-expand.expanded {
   background: var(--iitb-accent);

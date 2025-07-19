@@ -304,6 +304,39 @@
 
         .admin-team-member-info {
             flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .admin-team-member-avatar {
+            position: relative;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .admin-team-member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .admin-team-member-avatar-fallback {
+            width: 100%;
+            height: 100%;
+            background: var(--iitb-navy);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .admin-team-member-details {
+            flex: 1;
         }
 
         .admin-team-member-name {
@@ -312,7 +345,7 @@
             margin-bottom: 0.25rem;
         }
 
-        .admin-team-member-details {
+        .admin-team-member-role {
             font-size: 0.875rem;
             color: #6b7280;
         }
@@ -509,12 +542,9 @@
             width: 3rem;
             height: 3rem;
             border-radius: 0.5rem;
-            background-color: #f3f4f6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
             flex-shrink: 0;
+            position: relative;
         }
 
         .member-photo-small img {
@@ -523,7 +553,16 @@
             object-fit: cover;
         }
 
-        .member-photo-small i {
+        .member-photo-fallback {
+            width: 100%;
+            height: 100%;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .member-photo-fallback i {
             color: #9ca3af;
             font-size: 1.5rem;
         }
@@ -830,6 +869,19 @@
                                 <div class="form-group">
                                     <label for="memberGoogleScholar" class="form-label">Google Scholar URL</label>
                                     <input type="url" id="memberGoogleScholar" class="form-input" placeholder="https://scholar.google.com/citations?user=profile">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberImage" class="form-label">Profile Image URL</label>
+                                    <input type="url" id="memberImage" class="form-input" placeholder="https://example.com/profile-image.jpg">
+                                    <div class="info-box">
+                                        <div class="info-box-title">Image Requirements:</div>
+                                        <ul class="info-box-list">
+                                            <li>Use a square image (1:1 aspect ratio)</li>
+                                            <li>Recommended size: 200x200 pixels or larger</li>
+                                            <li>Supported formats: JPG, PNG, WebP</li>
+                                            <li>Leave empty to use default avatar</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-actions">
@@ -1443,9 +1495,18 @@
             return `
                 <div class="admin-team-member">
                     <div class="admin-team-member-info">
-                        <div class="admin-team-member-name">${member.name}</div>
+                        <div class="admin-team-member-avatar">
+                            ${member.image ? 
+                                `<img src="${member.image}" alt="${member.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />` : 
+                                ''
+                            }
+                            <div class="admin-team-member-avatar-fallback" style="${member.image ? 'display: none;' : 'display: flex;'}">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
                         <div class="admin-team-member-details">
-                            ${member.designation} • ${member.date}
+                            <div class="admin-team-member-name">${member.name}</div>
+                            <div class="admin-team-member-role">${member.designation} • ${member.date}</div>
                         </div>
                     </div>
                     <div class="admin-team-member-actions">
@@ -1471,7 +1532,8 @@
                 about: document.getElementById('memberAbout').value,
                 email: document.getElementById('memberEmail').value,
                 linkedin: document.getElementById('memberLinkedin').value,
-                googleScholar: document.getElementById('memberGoogleScholar').value
+                googleScholar: document.getElementById('memberGoogleScholar').value,
+                image: document.getElementById('memberImage').value
             };
 
             const status = document.getElementById('memberStatus').value;
@@ -1504,6 +1566,7 @@
             document.getElementById('memberEmail').value = member.email || '';
             document.getElementById('memberLinkedin').value = member.linkedin || '';
             document.getElementById('memberGoogleScholar').value = member.googleScholar || '';
+            document.getElementById('memberImage').value = member.image || '';
 
             // Remove the old member and update form to add mode
             teamMembers[status][category].splice(index, 1);

@@ -10,51 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         console.log('Script loading...');
-        // Define toggleProject function immediately to ensure it's available
-        window.toggleProject = function(button) {
-            console.log('toggleProject function called');
-            
-            try {
-                const projectCard = button.closest('.project-card');
-                const projectContent = projectCard.querySelector('.project-content');
-                
-                console.log('projectCard:', projectCard);
-                console.log('projectContent:', projectContent);
-                
-                if (!projectContent) {
-                    console.error('Could not find project-content element');
-                    return;
-                }
-                
-                const isExpanded = projectContent.classList.contains('expanded');
-                console.log('isExpanded:', isExpanded);
-                
-                if (isExpanded) {
-                    // Collapse
-                    projectContent.classList.remove('expanded');
-                    button.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
-                    button.classList.remove('expanded');
-                    console.log('Project collapsed');
-                } else {
-                    // Expand
-                    projectContent.classList.add('expanded');
-                    button.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Details';
-                    button.classList.add('expanded');
-                    console.log('Project expanded');
-                }
-            } catch (error) {
-                console.error('Error in toggleProject:', error);
-            }
-        };
-        
-        // Also define it as a regular function for compatibility
-        function toggleProject(button) {
-            return window.toggleProject(button);
-        }
-        
+        // toggleProject function is defined in script.js
         // Test if function is available
         console.log('toggleProject function available:', typeof window.toggleProject);
-        console.log('toggleProject function available (regular):', typeof toggleProject);
     </script>
 </head>
 <body>

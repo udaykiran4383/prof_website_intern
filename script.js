@@ -23,12 +23,45 @@ window.toggleProject = function(button) {
             button.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
             button.classList.remove('expanded');
             console.log('Project collapsed');
+            
+            // Force hide the elements using JavaScript
+            const details = projectContent.querySelector('.project-details');
+            const tech = projectContent.querySelector('.project-tech');
+            const objectives = projectContent.querySelector('.project-objectives');
+            const team = projectContent.querySelector('.project-team');
+            
+            if (details) details.style.display = 'none';
+            if (tech) tech.style.display = 'none';
+            if (objectives) objectives.style.display = 'none';
+            if (team) team.style.display = 'none';
         } else {
             // Expand
             projectContent.classList.add('expanded');
             button.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Details';
             button.classList.add('expanded');
             console.log('Project expanded');
+            
+            // Debug: Check if expanded class was added
+            console.log('projectContent has expanded class:', projectContent.classList.contains('expanded'));
+            
+            // Force show the elements using JavaScript
+            const details = projectContent.querySelector('.project-details');
+            const tech = projectContent.querySelector('.project-tech');
+            const objectives = projectContent.querySelector('.project-objectives');
+            const team = projectContent.querySelector('.project-team');
+            
+            if (details) details.style.display = 'grid';
+            if (tech) tech.style.display = 'flex';
+            if (objectives) objectives.style.display = 'block';
+            if (team) team.style.display = 'block';
+            
+            // Debug: Check computed styles after a short delay
+            setTimeout(() => {
+                console.log('Details display style:', details ? window.getComputedStyle(details).display : 'not found');
+                console.log('Tech display style:', tech ? window.getComputedStyle(tech).display : 'not found');
+                console.log('Objectives display style:', objectives ? window.getComputedStyle(objectives).display : 'not found');
+                console.log('Team display style:', team ? window.getComputedStyle(team).display : 'not found');
+            }, 100);
         }
     } catch (error) {
         console.error('Error in toggleProject:', error);
@@ -253,7 +286,7 @@ let currentEditingId = null;
 const dataManager = {
     // Local storage keys
     keys: {
-        teamMembers: 'admin_team_members',
+        teamMembers: 'teamMembers',
         publications: 'admin_publications',
         awards: 'admin_awards',
         settings: 'admin_site_settings',
@@ -263,15 +296,56 @@ const dataManager = {
 
     // Team members
     getTeamMembers() {
-        return JSON.parse(localStorage.getItem(this.keys.teamMembers) || '[]');
+        const data = JSON.parse(localStorage.getItem(this.keys.teamMembers) || '{}');
+        // Convert nested structure to flat array for compatibility
+        const members = [];
+        if (data.current) {
+            Object.keys(data.current).forEach(category => {
+                data.current[category].forEach(member => {
+                    members.push({
+                        ...member,
+                        status: 'current',
+                        category: category
+                    });
+                });
+            });
+        }
+        if (data.past) {
+            Object.keys(data.past).forEach(category => {
+                data.past[category].forEach(member => {
+                    members.push({
+                        ...member,
+                        status: 'past',
+                        category: category
+                    });
+                });
+            });
+        }
+        return members;
     },
 
     addTeamMember(member) {
         try {
-            const members = this.getTeamMembers();
-            member.id = 'member_' + Date.now();
-            members.push(member);
-            localStorage.setItem(this.keys.teamMembers, JSON.stringify(members));
+            const data = JSON.parse(localStorage.getItem(this.keys.teamMembers) || '{}');
+            if (!data[member.status]) {
+                data[member.status] = {
+                    postdoc: [],
+                    phd: [],
+                    mtech: [],
+                    btech: [],
+                    staff: []
+                };
+            }
+            if (!data[member.status][member.category]) {
+                data[member.status][member.category] = [];
+            }
+            
+            const newMember = { ...member };
+            delete newMember.status;
+            delete newMember.category;
+            
+            data[member.status][member.category].push(newMember);
+            localStorage.setItem(this.keys.teamMembers, JSON.stringify(data));
             return true;
         } catch (error) {
             console.error('Error adding team member:', error);
@@ -281,11 +355,23 @@ const dataManager = {
 
     updateTeamMember(id, memberData) {
         try {
-            const members = this.getTeamMembers();
-            const index = members.findIndex(m => m.id === id);
-            if (index !== -1) {
-                members[index] = { ...members[index], ...memberData };
-                localStorage.setItem(this.keys.teamMembers, JSON.stringify(members));
+            const data = JSON.parse(localStorage.getItem(this.keys.teamMembers) || '{}');
+            // Find and update the member in the nested structure
+            let found = false;
+            ['current', 'past'].forEach(status => {
+                if (data[status]) {
+                    Object.keys(data[status]).forEach(category => {
+                        const index = data[status][category].findIndex(m => m.id === id);
+                        if (index !== -1) {
+                            data[status][category][index] = { ...data[status][category][index], ...memberData };
+                            found = true;
+                        }
+                    });
+                }
+            });
+            
+            if (found) {
+                localStorage.setItem(this.keys.teamMembers, JSON.stringify(data));
                 return true;
             }
             return false;
@@ -297,10 +383,25 @@ const dataManager = {
 
     deleteTeamMember(id) {
         try {
-            const members = this.getTeamMembers();
-            const filteredMembers = members.filter(m => m.id !== id);
-            localStorage.setItem(this.keys.teamMembers, JSON.stringify(filteredMembers));
-            return true;
+            const data = JSON.parse(localStorage.getItem(this.keys.teamMembers) || '{}');
+            let found = false;
+            ['current', 'past'].forEach(status => {
+                if (data[status]) {
+                    Object.keys(data[status]).forEach(category => {
+                        const index = data[status][category].findIndex(m => m.id === id);
+                        if (index !== -1) {
+                            data[status][category].splice(index, 1);
+                            found = true;
+                        }
+                    });
+                }
+            });
+            
+            if (found) {
+                localStorage.setItem(this.keys.teamMembers, JSON.stringify(data));
+                return true;
+            }
+            return false;
         } catch (error) {
             console.error('Error deleting team member:', error);
             return false;
@@ -639,16 +740,22 @@ function setupEventListeners() {
 
 // Form submission handlers
 function handleTeamMemberSubmit() {
+    // Skip if we're on the admin page (admin.html has its own team member handling)
+    if (window.location.pathname.includes('admin.html')) {
+        return;
+    }
+    
     const formData = {
         name: document.getElementById('memberName').value,
-        role: document.getElementById('memberRole').value,
+        designation: document.getElementById('memberDesignation').value,
+        status: document.getElementById('memberStatus').value,
         category: document.getElementById('memberCategory').value,
-        subcategory: document.getElementById('memberSubcategory').value,
-        joinDate: document.getElementById('memberJoinDate').value,
-        graduationDate: document.getElementById('memberGraduationDate').value,
-        description: document.getElementById('memberDescription').value,
-        currentPosition: document.getElementById('memberCurrentPosition').value,
-        image: document.getElementById('memberImage').value
+        date: document.getElementById('memberDate').value,
+        about: document.getElementById('memberAbout').value,
+        email: document.getElementById('memberEmail').value,
+        linkedin: document.getElementById('memberLinkedin').value,
+        googleScholar: document.getElementById('memberGoogleScholar').value,
+        image: document.getElementById('memberImage') ? document.getElementById('memberImage').value : ''
     };
 
     if (currentEditingId) {
@@ -812,8 +919,15 @@ function loadAllData() {
 }
 
 function loadTeamMembers() {
+    // Skip if we're on the admin page (admin.html has its own team member handling)
+    if (window.location.pathname.includes('admin.html')) {
+        return;
+    }
+    
     const teamMembers = dataManager.getTeamMembers();
     const container = document.getElementById('teamMembersList');
+    
+    if (!container) return; // Not on admin page
     
     if (teamMembers.length === 0) {
         container.innerHTML = `
@@ -828,9 +942,9 @@ function loadTeamMembers() {
 
     let html = '';
     
-    // Group by category
-    const currentMembers = teamMembers.filter(m => m.category === 'current');
-    const pastMembers = teamMembers.filter(m => m.category === 'past');
+    // Group by status
+    const currentMembers = teamMembers.filter(m => m.status === 'current');
+    const pastMembers = teamMembers.filter(m => m.status === 'past');
     
     if (currentMembers.length > 0) {
         html += '<h3 style="color: var(--iitb-navy); margin-bottom: 1rem;">Current Members</h3>';
@@ -850,7 +964,7 @@ function loadTeamMembers() {
 }
 
 function renderTeamMemberCard(member, isPast) {
-    const subcategoryNames = {
+    const categoryNames = {
         postdoc: 'Post-Doctoral Fellow',
         phd: 'PhD Candidate',
         mtech: 'M.Tech Student',
@@ -862,18 +976,22 @@ function renderTeamMemberCard(member, isPast) {
         <div class="team-member-preview ${isPast ? 'past-member' : 'current-member'}">
             <div class="member-photo-small">
                 ${member.image ? 
-                    `<img src="${member.image}" alt="${member.name}">` : 
-                    '<i class="fas fa-user"></i>'
+                    `<img src="${member.image}" alt="${member.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />` : 
+                    ''
                 }
+                <div class="member-photo-fallback" style="${member.image ? 'display: none;' : 'display: flex;'}">
+                    <i class="fas fa-user"></i>
+                </div>
             </div>
             <div class="member-info">
                 <div class="member-name">${member.name}</div>
-                <div class="member-role">${member.role}</div>
+                <div class="member-role">${member.designation}</div>
                 <div class="member-category">
-                    ${subcategoryNames[member.subcategory] || member.subcategory} • 
-                    ${member.category === 'current' ? 'Current' : 'Past'} Member
-                    ${member.joinDate ? ` • Joined ${formatDate(member.joinDate)}` : ''}
+                    ${categoryNames[member.category] || member.category} • 
+                    ${member.status === 'current' ? 'Current' : 'Past'} Member
+                    ${member.date ? ` • ${member.date}` : ''}
                 </div>
+                ${member.about ? `<div class="member-description">${member.about}</div>` : ''}
             </div>
             <div class="item-actions">
                 <button onclick="editTeamMember('${member.id}')" class="btn btn-small btn-outline">
