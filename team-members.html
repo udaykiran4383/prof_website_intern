@@ -9,508 +9,258 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .member-date-compact {
-            font-size: 0.75rem;
-            color: var(--iitb-accent);
-            margin: 0.25rem 0;
-            font-weight: 500;
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
-
-        .member-about-compact {
-            font-size: 0.75rem;
-            color: #6b7280;
-            margin: 0.5rem 0;
-            line-height: 1.4;
+        
+        .team-member {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
         }
-
-        .member-social-compact {
+        
+        .team-member:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--iitb-navy) 0%, var(--iitb-accent) 100%);
             display: flex;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .social-link-compact {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 1.5rem;
-            height: 1.5rem;
+            color: white;
+            font-size: 3rem;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--iitb-navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-role {
+            font-size: 1rem;
+            color: var(--iitb-accent);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .member-research {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        
+        .social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
             background: var(--iitb-navy);
             color: white;
-            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            font-size: 0.75rem;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            font-size: 1rem;
         }
-
-        .social-link-compact:hover {
+        
+        .social-link:hover {
             background: var(--iitb-accent);
             transform: scale(1.1);
         }
-
-        .team-member-compact {
-            padding: 2.5rem;
-            border-radius: 0.75rem;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.25rem;
+        
+        .team-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-header {
             text-align: center;
+            margin-bottom: 3rem;
         }
-
-        .team-member-compact:hover {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--iitb-navy);
+            margin-bottom: 1rem;
         }
-
-        .member-avatar-compact {
-            position: relative;
-            width: 10rem;
-            height: 10rem;
-            border-radius: 50%;
-            overflow: hidden;
-            flex-shrink: 0;
-            margin-bottom: 0.5rem;
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
         }
-
-        .member-avatar-compact img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .member-avatar-fallback {
-            width: 100%;
-            height: 100%;
-            background: var(--iitb-navy);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-        }
-
-        .member-info-compact {
-            width: 100%;
-            text-align: center;
-        }
-
-        .member-name-compact {
-            margin-bottom: 0.5rem;
-        }
-
-        .member-role-compact {
-            margin-bottom: 0.25rem;
-        }
-
-        .member-date-compact {
-            margin-bottom: 0.5rem;
-        }
-
-        .member-about-compact {
-            margin-bottom: 0.75rem;
-        }
-
-        .member-social-compact {
-            justify-content: center;
-        }
-
-        /* Professor section styling */
-        .team-tree-root {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .team-member-compact.professor {
-            max-width: 280px;
-            width: 100%;
+        
+        .professor-highlight {
             background: linear-gradient(135deg, var(--iitb-navy) 0%, var(--iitb-accent) 100%);
             color: white;
-            border: 2px solid var(--iitb-accent);
-            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
-            flex-direction: column;
-            align-items: center;
+            border: none;
         }
-
-        .team-member-compact.professor .member-avatar-compact {
-            width: 6rem;
-            height: 6rem;
+        
+        .professor-highlight .member-avatar {
             background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 0.5rem;
+            border: 4px solid rgba(255, 255, 255, 0.3);
         }
-
-        .team-member-compact.professor .member-avatar-fallback {
-            background: rgba(255, 255, 255, 0.2);
+        
+        .professor-highlight .member-name {
             color: white;
-            font-size: 2.5rem;
         }
-
-        .team-member-compact.professor .member-name-compact {
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .team-member-compact.professor .member-role-compact {
+        
+        .professor-highlight .member-role {
             color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
         }
-
-        /* Alumni section styling */
-        .team-member-compact.alumni {
-            max-width: 280px;
-            width: 100%;
+        
+        .professor-highlight .member-research {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .professor-highlight .social-link {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .professor-highlight .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .alumni-section {
+            background: #f8fafc;
+            padding: 3rem 0;
+        }
+        
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .alumni-member {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-left: 4px solid #9ca3af;
+        }
+        
+        .alumni-member .member-avatar {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
             background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+        }
+        
+        .alumni-member .member-name {
+            font-size: 1.1rem;
+            color: #374151;
+        }
+        
+        .alumni-member .member-role {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        
+        .join-team-section {
+            background: white;
+            padding: 3rem 0;
+        }
+        
+        .join-team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .join-team-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .join-team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .join-team-icon {
+            width: 4rem;
+            height: 4rem;
+            background: var(--iitb-navy);
             color: white;
-            border: 2px solid #9ca3af;
-            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.2);
-            flex-direction: column;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
         }
-
-        .team-member-compact.alumni .member-avatar-compact {
-            width: 6rem;
-            height: 6rem;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 0.5rem;
-        }
-
-        .team-member-compact.alumni .member-avatar-fallback {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            font-size: 2.5rem;
-        }
-
-        .team-member-compact.alumni .member-name-compact {
-            color: white;
+        
+        .join-team-title {
             font-size: 1.25rem;
-            font-weight: 700;
+            color: var(--iitb-navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
-
-        .team-member-compact.alumni .member-role-compact {
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
+        
+        .join-team-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
-
-        /* Mobile Responsive Styles */
+        
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .section-padding {
-                padding: 2rem 0;
-            }
-
-            .page-title {
-                font-size: 1.75rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .page-description {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .section-description {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            /* Team Tree Mobile Layout */
-            .team-tree-container {
-                margin: 1rem 0;
-            }
-
-            .team-tree-branches {
+            .team-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-
-            .team-branch {
-                padding: 1rem;
+            
+            .alumni-grid {
+                grid-template-columns: 1fr;
             }
-
-            .branch-header {
-                padding: 0.75rem;
-                margin-bottom: 1rem;
-            }
-
-            .branch-header h3 {
-                font-size: 1.125rem;
-            }
-
-            /* Team Member Cards Mobile */
-            .team-member-compact {
-                padding: 1.5rem;
-                margin-bottom: 1rem;
-                gap: 1rem;
-            }
-
-            .member-avatar-compact {
-                width: 6rem;
-                height: 6rem;
-            }
-
-            .member-avatar-fallback {
-                font-size: 2.5rem;
-            }
-
-            .member-name-compact {
-                font-size: 1.125rem;
-                margin-bottom: 0.25rem;
-            }
-
-            .member-role-compact {
-                font-size: 0.875rem;
-                margin-bottom: 0.25rem;
-            }
-
-            .member-date-compact {
-                font-size: 0.75rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .member-about-compact {
-                font-size: 0.75rem;
-                margin-bottom: 0.75rem;
-                line-height: 1.4;
-            }
-
-            .member-social-compact {
-                gap: 0.75rem;
-            }
-
-            .social-link-compact {
-                width: 2rem;
-                height: 2rem;
-                font-size: 0.875rem;
-            }
-
-            /* Professor Section Mobile */
-            .team-member-compact.professor {
-                max-width: 100%;
-                padding: 1.5rem;
-            }
-
-            .team-member-compact.professor .member-avatar-compact {
-                width: 5rem;
-                height: 5rem;
-            }
-
-            .team-member-compact.professor .member-avatar-fallback {
-                font-size: 2rem;
-            }
-
-            .team-member-compact.professor .member-name-compact {
-                font-size: 1.25rem;
-            }
-
-            /* Alumni Section Mobile */
-            .team-member-compact.alumni {
-                max-width: 100%;
-                padding: 1.5rem;
-            }
-
-            .team-member-compact.alumni .member-avatar-compact {
-                width: 5rem;
-                height: 5rem;
-            }
-
-            .team-member-compact.alumni .member-avatar-fallback {
-                font-size: 2rem;
-            }
-
-            /* Join Team Section Mobile */
+            
             .join-team-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
-
-            .join-team-card {
+            
+            .team-member {
                 padding: 1.5rem;
             }
-
-            .join-team-title {
-                font-size: 1.25rem;
+            
+            .member-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
             }
-
-            .join-team-description {
-                font-size: 0.875rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 0.75rem;
-            }
-
-            .section-padding {
-                padding: 1.5rem 0;
-            }
-
-            .page-title {
-                font-size: 1.5rem;
-            }
-
+            
             .section-title {
-                font-size: 1.25rem;
-            }
-
-            /* Team Member Cards Small Mobile */
-            .team-member-compact {
-                padding: 1rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .member-avatar-compact {
-                width: 5rem;
-                height: 5rem;
-            }
-
-            .member-avatar-fallback {
-                font-size: 2rem;
-            }
-
-            .member-name-compact {
-                font-size: 1rem;
-            }
-
-            .member-role-compact {
-                font-size: 0.8rem;
-            }
-
-            .member-date-compact {
-                font-size: 0.7rem;
-            }
-
-            .member-about-compact {
-                font-size: 0.7rem;
-                line-height: 1.3;
-            }
-
-            .social-link-compact {
-                width: 1.75rem;
-                height: 1.75rem;
-                font-size: 0.75rem;
-            }
-
-            /* Professor Section Small Mobile */
-            .team-member-compact.professor {
-                padding: 1rem;
-            }
-
-            .team-member-compact.professor .member-avatar-compact {
-                width: 4rem;
-                height: 4rem;
-            }
-
-            .team-member-compact.professor .member-avatar-fallback {
                 font-size: 1.75rem;
-            }
-
-            .team-member-compact.professor .member-name-compact {
-                font-size: 1.125rem;
-            }
-
-            /* Alumni Section Small Mobile */
-            .team-member-compact.alumni {
-                padding: 1rem;
-            }
-
-            .team-member-compact.alumni .member-avatar-compact {
-                width: 4rem;
-                height: 4rem;
-            }
-
-            .team-member-compact.alumni .member-avatar-fallback {
-                font-size: 1.75rem;
-            }
-
-            /* Branch Headers Small Mobile */
-            .branch-header {
-                padding: 0.5rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .branch-header h3 {
-                font-size: 1rem;
-            }
-
-            .branch-header i {
-                font-size: 1rem;
-            }
-
-            /* Join Team Small Mobile */
-            .join-team-card {
-                padding: 1rem;
-            }
-
-            .join-team-title {
-                font-size: 1.125rem;
-            }
-
-            .join-team-description {
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Landscape Mobile Optimization */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .team-tree-branches {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .team-member-compact {
-                padding: 1rem;
-            }
-
-            .member-avatar-compact {
-                width: 4rem;
-                height: 4rem;
-            }
-
-            .member-avatar-fallback {
-                font-size: 2rem;
-            }
-        }
-
-        /* Touch-friendly interactions */
-        @media (hover: none) and (pointer: coarse) {
-            .team-member-compact:hover {
-                transform: none;
-            }
-
-            .social-link-compact:hover {
-                transform: none;
-            }
-
-            .join-team-card:hover {
-                transform: none;
-            }
-
-            /* Increase touch targets */
-            .social-link-compact {
-                min-width: 2.5rem;
-                min-height: 2.5rem;
-            }
-
-            .btn {
-                min-height: 2.75rem;
-                padding: 0.75rem 1.5rem;
             }
         }
     </style>
@@ -585,180 +335,105 @@
             </div>
         </section>
 
-        <!-- Current Members -->
+        <!-- Principal Investigator -->
         <section class="section-padding">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Current Members</h2>
-                    <p class="section-description">
-                        Our active research team working on innovative transportation engineering solutions.
-                    </p>
+                    <h2 class="section-title">Principal Investigator</h2>
                 </div>
-
-                <!-- Team Tree Structure -->
-                <div class="team-tree-container">
-                    <!-- Professor (Root) -->
-                    <div class="team-tree-root">
-                        <div class="team-member-compact professor">
-                            <div class="member-avatar-compact">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="member-info-compact">
-                                <h4 class="member-name-compact">Prof. Archak Mittal</h4>
-                                <p class="member-role-compact">Principal Investigator</p>
-                            </div>
+                
+                <div class="team-grid">
+                    <div class="team-member professor-highlight">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-tie"></i>
                         </div>
-                    </div>
-
-                    <!-- Team Categories -->
-                    <div class="team-tree-branches">
-                        <!-- Post-Doctoral Fellows -->
-                        <div class="team-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-user-graduate"></i>
-                                <h3>Post-Doctoral Fellows</h3>
-                            </div>
-                            <div class="team-members-compact" id="current-postdoc">
-                                <!-- Team members will be loaded here -->
-                            </div>
-                        </div>
-
-                        <!-- PhD Candidates -->
-                        <div class="team-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-user-tie"></i>
-                                <h3>PhD Candidates</h3>
-                            </div>
-                            <div class="team-members-compact" id="current-phd">
-                                <!-- Team members will be loaded here -->
-                            </div>
-                        </div>
-
-                        <!-- M.Tech Students -->
-                        <div class="team-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-user-graduate"></i>
-                                <h3>M.Tech Students</h3>
-                            </div>
-                            <div class="team-members-compact" id="current-mtech">
-                                <!-- Team members will be loaded here -->
-                            </div>
-                        </div>
-
-                        <!-- B.Tech Students -->
-                        <div class="team-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-user-graduate"></i>
-                                <h3>B.Tech Students</h3>
-                            </div>
-                            <div class="team-members-compact" id="current-btech">
-                                <!-- Team members will be loaded here -->
-                            </div>
-                        </div>
-
-                        <!-- Project Staff -->
-                        <div class="team-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-users"></i>
-                                <h3>Project Staff</h3>
-                            </div>
-                            <div class="team-members-compact" id="current-staff">
-                                <!-- Team members will be loaded here -->
-                            </div>
+                        <h3 class="member-name">Prof. Archak Mittal</h3>
+                        <p class="member-role">Assistant Professor, IIT Bombay</p>
+                        <p class="member-research">
+                            Leading research in connected vehicles, smart cities, and intelligent transportation systems. 
+                            Specializing in V2X communication, traffic safety, and AI applications in transportation.
+                        </p>
+                        <div class="member-social">
+                            <a href="https://scholar.google.com/citations?user=nM_oGqQAAAAJ&hl=en" target="_blank" class="social-link">
+                                <i class="fas fa-graduation-cap"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/archak-mittal" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:archak@civil.iitb.ac.in" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Past Members -->
+        <!-- Current Team Members -->
         <section class="section-padding bg-light">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Past Members</h2>
+                    <h2 class="section-title">Current Team Members</h2>
                     <p class="section-description">
-                        Alumni and former team members who have contributed to our research success.
+                        Our active research team working on innovative transportation engineering solutions.
                     </p>
                 </div>
-
-                <!-- Past Team Tree Structure -->
-                <div class="team-tree-container past-members">
-                    <!-- Alumni Icon (Root) -->
-                    <div class="team-tree-root">
-                        <div class="team-member-compact alumni">
-                            <div class="member-avatar-compact">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div class="member-info-compact">
-                                <h4 class="member-name-compact">Alumni Network</h4>
-                                <p class="member-role-compact">Former Team Members</p>
-                            </div>
+                
+                <div class="team-grid" id="current-team">
+                    <!-- Team members will be loaded here -->
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3 class="member-name">Aaditi Kumari</h3>
+                        <p class="member-role">PhD Candidate</p>
+                        <p class="member-research">
+                            Research focus: V2X Communication in Connected Vehicle Environments
+                        </p>
+                        <div class="member-social">
+                            <a href="mailto:aaditi@iitb.ac.in" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
-
-                    <!-- Past Team Categories -->
-                    <div class="team-tree-branches">
-                        <!-- Past Post-Doctoral Fellows -->
-                        <div class="team-branch past-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-user-graduate"></i>
-                                <h3>Post-Doctoral Fellows</h3>
-                            </div>
-                            <div class="team-members-compact" id="past-postdoc">
-                                <!-- Team members will be loaded here -->
-                            </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-graduate"></i>
                         </div>
-
-                        <!-- Past PhD Candidates -->
-                        <div class="team-branch past-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-user-tie"></i>
-                                <h3>PhD Candidates</h3>
-                            </div>
-                            <div class="team-members-compact" id="past-phd">
-                                <!-- Team members will be loaded here -->
-                            </div>
-                        </div>
-
-                        <!-- Past M.Tech Students -->
-                        <div class="team-branch past-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-user-graduate"></i>
-                                <h3>M.Tech Students</h3>
-                            </div>
-                            <div class="team-members-compact" id="past-mtech">
-                                <!-- Team members will be loaded here -->
-                            </div>
-                        </div>
-
-                        <!-- Past B.Tech Students -->
-                        <div class="team-branch past-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-user-graduate"></i>
-                                <h3>B.Tech Students</h3>
-                            </div>
-                            <div class="team-members-compact" id="past-btech">
-                                <!-- Team members will be loaded here -->
-                            </div>
-                        </div>
-
-                        <!-- Past Project Staff -->
-                        <div class="team-branch past-branch">
-                            <div class="branch-header">
-                                <i class="fas fa-users"></i>
-                                <h3>Project Staff</h3>
-                            </div>
-                            <div class="team-members-compact" id="past-staff">
-                                <!-- Team members will be loaded here -->
-                            </div>
+                        <h3 class="member-name">Angshuman Baruah</h3>
+                        <p class="member-role">PhD Candidate</p>
+                        <p class="member-research">
+                            Research focus: V2X Communication in Adverse Weather Conditions
+                        </p>
+                        <div class="member-social">
+                            <a href="mailto:angshuman@iitb.ac.in" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alumni -->
+        <section class="section-padding alumni-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Alumni</h2>
+                    <p class="section-description">
+                        Former team members who have contributed to our research success and moved on to exciting opportunities.
+                    </p>
+                </div>
+                
+                <div class="alumni-grid" id="alumni-team">
+                    <!-- Alumni will be loaded here -->
                 </div>
             </div>
         </section>
 
         <!-- Join the Team -->
-        <section class="section-padding">
+        <section class="section-padding join-team-section">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Join Our Research Team</h2>
@@ -798,11 +473,11 @@
 
                     <div class="join-team-card">
                         <div class="join-team-icon">
-                            <i class="fas fa-handshake"></i>
+                            <i class="fas fa-users"></i>
                         </div>
-                        <h3 class="join-team-title">Collaboration</h3>
+                        <h3 class="join-team-title">Project Staff</h3>
                         <p class="join-team-description">
-                            Interested in research collaboration? Get in touch to discuss potential partnerships and joint projects.
+                            Work on funded research projects with opportunities for technology development and industry collaboration.
                         </p>
                         <a href="contact.html" class="btn btn-outline">
                             Contact Us
@@ -939,249 +614,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Team members data structure
-        let teamMembers = {
-            current: {
-                postdoc: [],
-                phd: [],
-                mtech: [],
-                btech: [],
-                staff: []
-            },
-            past: {
-                postdoc: [],
-                phd: [],
-                mtech: [],
-                staff: []
-            }
-        };
-
-        // Load team members from localStorage
-        function loadTeamMembers() {
-            const saved = localStorage.getItem('teamMembers');
-            if (saved) {
-                teamMembers = JSON.parse(saved);
-            } else {
-                // Load default data if no saved data exists
-                teamMembers = {
-                    current: {
-                        postdoc: [
-                            {
-                                name: "Bharti",
-                                designation: "Post-Doctoral Fellow",
-                                date: "July 2024 - Present",
-                                about: "Specializing in traffic flow prediction and AI applications for smart city traffic management using real-time data analytics.",
-                                email: "bharti@iitb.ac.in",
-                                linkedin: "https://linkedin.com/in/bharti-researcher",
-                                googleScholar: "https://scholar.google.com/citations?user=bharti-profile",
-                                image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face"
-                            }
-                        ],
-                        phd: [
-                            {
-                                name: "Aaditi Kumari",
-                                designation: "PhD Candidate",
-                                date: "January 2023 - Present",
-                                about: "Researching V2X communication, transport safety and sustainability. Working on simulation frameworks for connected vehicles in urban environments.",
-                                email: "aaditi.kumari@iitb.ac.in",
-                                linkedin: "https://linkedin.com/in/aaditi-kumari",
-                                googleScholar: "https://scholar.google.com/citations?user=aaditi-profile",
-                                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face"
-                            },
-                            {
-                                name: "Angshuman Baruah",
-                                designation: "PhD Candidate",
-                                date: "August 2022 - Present",
-                                about: "Focusing on V2X communication in adverse weather conditions and road safety improvements during challenging weather scenarios.",
-                                email: "angshuman.baruah@iitb.ac.in",
-                                linkedin: "https://linkedin.com/in/angshuman-baruah",
-                                googleScholar: "https://scholar.google.com/citations?user=angshuman-profile",
-                                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
-                            },
-                            {
-                                name: "Parth Loya",
-                                designation: "PhD Candidate",
-                                date: "January 2024 - Present",
-                                about: "Conducting research on motorcycle behavior analysis and urban mobility patterns for improved traffic management.",
-                                email: "parth.loya@iitb.ac.in",
-                                linkedin: "https://linkedin.com/in/parth-loya",
-                                googleScholar: "https://scholar.google.com/citations?user=parth-profile"
-                            }
-                        ],
-                        mtech: [
-                            {
-                                name: "Rahul Sharma",
-                                designation: "M.Tech Student",
-                                date: "July 2024 - Present",
-                                about: "Working on intelligent transportation systems and traffic signal optimization for urban environments.",
-                                email: "rahul.sharma@iitb.ac.in",
-                                linkedin: "https://linkedin.com/in/rahul-sharma",
-                                googleScholar: "https://scholar.google.com/citations?user=rahul-profile"
-                            }
-                        ],
-                        btech: [
-                            {
-                                name: "Priya Patel",
-                                designation: "B.Tech Student",
-                                date: "May 2024 - Present",
-                                about: "Undergraduate research assistant working on data analysis for connected vehicle applications.",
-                                email: "priya.patel@iitb.ac.in",
-                                linkedin: "https://linkedin.com/in/priya-patel",
-                                googleScholar: ""
-                            }
-                        ],
-                        staff: [
-                            {
-                                name: "Amit Kumar",
-                                designation: "Project Staff",
-                                date: "March 2024 - Present",
-                                about: "Technical staff supporting research projects in connected vehicle technologies and field data collection.",
-                                email: "amit.kumar@iitb.ac.in",
-                                linkedin: "https://linkedin.com/in/amit-kumar",
-                                googleScholar: ""
-                            }
-                        ]
-                    },
-                    past: {
-                        postdoc: [
-                            {
-                                name: "Dr. Sarah Johnson",
-                                designation: "Former Post-Doctoral Fellow",
-                                date: "January 2022 - June 2024",
-                                about: "Completed postdoctoral research on autonomous vehicle integration in mixed traffic environments.",
-                                email: "sarah.johnson@university.edu",
-                                linkedin: "https://linkedin.com/in/sarah-johnson",
-                                googleScholar: "https://scholar.google.com/citations?user=sarah-profile"
-                            }
-                        ],
-                        phd: [
-                            {
-                                name: "Dr. Rajesh Kumar",
-                                designation: "Former PhD Candidate",
-                                date: "August 2019 - July 2023",
-                                about: "Successfully defended PhD thesis on 'Advanced Traffic Signal Control Systems for Smart Cities'.",
-                                email: "rajesh.kumar@company.com",
-                                linkedin: "https://linkedin.com/in/rajesh-kumar",
-                                googleScholar: "https://scholar.google.com/citations?user=rajesh-profile"
-                            }
-                        ],
-                        mtech: [
-                            {
-                                name: "Anjali Singh",
-                                designation: "Former M.Tech Student",
-                                date: "July 2022 - May 2024",
-                                about: "Completed M.Tech thesis on 'Machine Learning Applications in Traffic Flow Prediction'.",
-                                email: "anjali.singh@company.com",
-                                linkedin: "https://linkedin.com/in/anjali-singh",
-                                googleScholar: "https://scholar.google.com/citations?user=anjali-profile"
-                            }
-                        ],
-                        btech: [
-                            {
-                                name: "Vikram Mehta",
-                                designation: "Former B.Tech Student",
-                                date: "January 2023 - December 2023",
-                                about: "Completed undergraduate research project on 'IoT Applications in Transportation'.",
-                                email: "vikram.mehta@company.com",
-                                linkedin: "https://linkedin.com/in/vikram-mehta",
-                                googleScholar: ""
-                            }
-                        ],
-                        staff: [
-                            {
-                                name: "Deepak Verma",
-                                designation: "Former Project Staff",
-                                date: "June 2022 - February 2024",
-                                about: "Provided technical support for multiple research projects in transportation engineering.",
-                                email: "deepak.verma@company.com",
-                                linkedin: "https://linkedin.com/in/deepak-verma",
-                                googleScholar: ""
-                            }
-                        ]
-                    }
-                };
-            }
-        }
-
-        // Function to create team member card
-        function createTeamMemberCard(member) {
-            return `
-                <div class="team-member-card">
-                    <div class="member-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="member-info">
-                        <h3 class="member-name">${member.name}</h3>
-                        <p class="member-role">${member.designation}</p>
-                        <p class="member-date">${member.date}</p>
-                        <p class="member-about">${member.about}</p>
-                        <div class="member-social-links">
-                            ${member.email ? `<a href="mailto:${member.email}" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>` : ''}
-                            ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
-                            ${member.googleScholar ? `<a href="${member.googleScholar}" target="_blank" class="social-link" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>` : ''}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Function to render team members
-        function renderTeamMembers() {
-            // Render current members
-            Object.keys(teamMembers.current).forEach(category => {
-                const container = document.getElementById(`current-${category}`);
-                if (container && teamMembers.current[category].length > 0) {
-                    container.innerHTML = teamMembers.current[category].map(member => createCompactTeamMemberCard(member)).join('');
-                } else if (container) {
-                    container.innerHTML = '<p class="no-members">No current members in this category.</p>';
-                }
-            });
-
-            // Render past members
-            Object.keys(teamMembers.past).forEach(category => {
-                const container = document.getElementById(`past-${category}`);
-                if (container && teamMembers.past[category].length > 0) {
-                    container.innerHTML = teamMembers.past[category].map(member => createCompactTeamMemberCard(member)).join('');
-                } else if (container) {
-                    container.innerHTML = '<p class="no-members">No past members in this category.</p>';
-                }
-            });
-        }
-
-        // Function to create compact team member card for tree structure
-        function createCompactTeamMemberCard(member) {
-            return `
-                <div class="team-member-compact">
-                    <div class="member-avatar-compact">
-                        ${member.image ? 
-                            `<img src="${member.image}" alt="${member.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />` : 
-                            ''
-                        }
-                        <div class="member-avatar-fallback" style="${member.image ? 'display: none;' : 'display: flex;'}">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
-                    <div class="member-info-compact">
-                        <h4 class="member-name-compact">${member.name}</h4>
-                        <p class="member-role-compact">${member.designation}</p>
-                        <p class="member-date-compact">${member.date}</p>
-                        ${member.about ? `<p class="member-about-compact">${member.about}</p>` : ''}
-                        <div class="member-social-compact">
-                            ${member.email ? `<a href="mailto:${member.email}" class="social-link-compact" title="Email"><i class="fas fa-envelope"></i></a>` : ''}
-                            ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" class="social-link-compact" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
-                            ${member.googleScholar ? `<a href="${member.googleScholar}" target="_blank" class="social-link-compact" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>` : ''}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Initialize team members when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            loadTeamMembers();
-            renderTeamMembers();
-        });
-    </script>
 </body>
 </html> 
